@@ -1,175 +1,192 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>돌하루팡 - 최저가숙소</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
-    <link rel="stylesheet" href="css/common/common.css">
-    <link rel="stylesheet" href="css/stays/stays.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/stays.css" />
+  </head>
 
-<body>
-    <!-- 헤더 -->
+  <body>
+    <!-- 공통 헤더 -->
     <header class="header">
-        <div class="inner header-inner">
-            <h1 class="logo">
-                <a href="index.html">
-                    <img src="images/common/logo-white.png" alt="돌하루팡">
-                </a>
-            </h1>
-            <nav class="gnb">
-                <ul>
-                    <li><a href="cars.html"><i class="ri-car-line"></i>렌터카</a></li>
-                    <li class="active"><a href="stays.html"><i class="ri-home-4-line"></i>최저가 숙소</a></li>
-                    <li><a href="#"><i class="ri-coupon-3-line"></i>혜택 및 이벤트</a></li>
-                    <li><a href="faq.html"><i class="ri-book-marked-line"></i>이용가이드</a></li>
-                </ul>
-            </nav>
-            <div class="user">
-                <span>OOO 님</span>
-                <a href="#" class="user-icon" aria-label="마이페이지"><i class="ri-account-circle-line"></i></a>
-            </div>
-        </div>
+      <div class="inner header-inner">
+        <a href="index.html" class="header-logo">
+          <img src="images/common/logo-white.png" alt="돌하루팡" />
+        </a>
+
+        <nav class="gnb">
+          <a href="cars.html" class="gnb-item">
+            <svg viewBox="0 0 24 24">
+              <path d="M5 17h14v-5l-2-5H7l-2 5v5z" />
+              <circle cx="7.5" cy="17" r="1.5" />
+              <circle cx="16.5" cy="17" r="1.5" />
+              <path d="M5 12h14" />
+            </svg>
+            렌터카
+          </a>
+          <a href="stays.html" class="gnb-item is-active">
+            <svg viewBox="0 0 24 24">
+              <path d="M3 11l9-7 9 7" />
+              <path d="M5 10v10h14V10" />
+              <path d="M10 20v-5h4v5" />
+            </svg>
+            최저가 숙소
+          </a>
+          <a href="review.html" class="gnb-item">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="6" width="18" height="12" rx="2" />
+              <path d="M9 6v12" stroke-dasharray="2 2" />
+              <path d="M13 10l4 4M17 10l-4 4" />
+            </svg>
+            혜택 및 이벤트
+          </a>
+          <a href="faq.html" class="gnb-item">
+            <svg viewBox="0 0 24 24">
+              <path d="M6 3h12v18l-6-4-6 4z" />
+              <path d="M9 8h6" />
+            </svg>
+            이용가이드
+          </a>
+        </nav>
+
+        <a href="#" class="header-user">
+          OOO 님
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <circle cx="12" cy="10" r="3" />
+            <path d="M6.5 18.5c1.5-2 3.4-3 5.5-3s4 1 5.5 3" />
+          </svg>
+        </a>
+      </div>
     </header>
 
-    <main class="stays">
-        <!-- 비주얼 + 검색 -->
-        <section class="stays-visual">
-            <h2 class="stays-title">최저가 숙소</h2>
-        </section>
+    <main>
+      <!-- ===== Hero ===== -->
+      <section class="hero">
+        <h1 class="hero__title">최저가 숙소</h1>
+      </section>
 
-        <section class="stays-search">
-            <form class="search-box" action="#">
-                <label class="search-field field-place">
-                    <i class="ri-map-pin-line"></i>
-                    <input type="text" placeholder="어디로 갈까요">
-                </label>
-                <label class="search-field field-date">
-                    <i class="ri-calendar-schedule-line"></i>
-                    <input type="text" placeholder="시작날짜" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
-                </label>
-                <label class="search-field field-date">
-                    <i class="ri-calendar-line"></i>
-                    <input type="text" placeholder="종료날짜" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
-                </label>
-                <button type="submit" class="btn-search">최저가 가격비교 시작</button>
-            </form>
-        </section>
+      <!-- ===== Search ===== -->
+      <section class="search">
+        <form class="search__box" id="searchForm">
+          <label class="search__field">
+            <span class="search__icon">📍</span>
+            <input
+              type="text"
+              id="keyword"
+              placeholder="어디로 갈까요"
+              list="regionList"
+            />
+            <datalist id="regionList">
+              <option value="제주시"></option>
+              <option value="서귀포시"></option>
+              <option value="애월"></option>
+              <option value="중문"></option>
+              <option value="성산"></option>
+            </datalist>
+          </label>
+          <label class="search__field">
+            <span class="search__icon">📅</span>
+            <input
+              type="text"
+              id="checkIn"
+              placeholder="시작날짜"
+              onfocus="this.type = 'date'"
+              onblur="if (!this.value) this.type = 'text';"
+            />
+          </label>
+          <label class="search__field">
+            <span class="search__icon">📅</span>
+            <input
+              type="text"
+              id="checkOut"
+              placeholder="종료날짜"
+              onfocus="this.type = 'date'"
+              onblur="if (!this.value) this.type = 'text';"
+            />
+          </label>
+          <button type="submit" class="btn-primary">
+            최저가 가격비교 시작
+          </button>
+        </form>
+      </section>
 
-        <!-- 지도 -->
-        <section class="stays-map">
-            <div class="map-box">
-                <img src="images/stays/map.png" alt="제주도 숙소 지도" class="map-img">
-                <span class="map-price">₩79,982,879</span>
-                <span class="map-pin"><i class="ri-map-pin-2-fill"></i>제주</span>
-            </div>
-        </section>
+      <!-- ===== Map ===== -->
+      <section class="map-section">
+        <div id="map" class="map"></div>
+      </section>
 
-        <!-- 숙소 목록 -->
-        <section class="stays-list">
-            <ul class="stay-items">
-                <li class="stay-item">
-                    <a href="#">
-                        <div class="stay-thumb"><img src="images/stays/stay01.jpg" alt="서귀포시 펜션"></div>
-                        <div class="stay-info">
-                            <h3 class="stay-name">서귀포시 펜션 #서쪽집 #모던한옥 #감성숙소</h3>
-                            <p class="stay-room">침실2개 · 침대 2개 · 욕실2개</p>
-                            <p class="stay-date">10월31일-11월5일</p>
-                            <p class="stay-price">KRW 1,278,205</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="stay-item">
-                    <a href="#">
-                        <div class="stay-thumb"><img src="images/stays/stay02.jpg" alt="제주 독채 펜션"></div>
-                        <div class="stay-info">
-                            <h3 class="stay-name">[오픈특가] 제주 독채 펜션 #통창유리 #오션뷰</h3>
-                            <p class="stay-room">침실2개 · 침대 2개 · 욕실2개</p>
-                            <p class="stay-date">9월29일-10월4일</p>
-                            <p class="stay-price">KRW 1,800,500</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="stay-item">
-                    <a href="#">
-                        <div class="stay-thumb"><img src="images/stays/stay03.jpg" alt="애월읍 펜션"></div>
-                        <div class="stay-info">
-                            <h3 class="stay-name">애월읍 펜션</h3>
-                            <p class="stay-room">침실2개 · 침대 2개 · 욕실1개</p>
-                            <p class="stay-date">10월5일-10월10일</p>
-                            <p class="stay-price">KRW 1,277,112</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="stay-item">
-                    <a href="#">
-                        <div class="stay-thumb"><img src="images/stays/stay04.jpg" alt="제주 아파트"></div>
-                        <div class="stay-info">
-                            <h3 class="stay-name">제주 아파트 #공항근처 #가성비</h3>
-                            <p class="stay-room">침실1개 · 침대 2개 · 욕실1개</p>
-                            <p class="stay-date">10월1일-10월5일</p>
-                            <p class="stay-price">KRW 277,455</p>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-
-            <!-- 페이지네이션 -->
-            <div class="pagination">
-                <a href="#" class="page-prev" aria-label="이전 페이지"><i class="ri-arrow-left-s-line"></i></a>
-                <a href="#" class="page-num active">1</a>
-                <a href="#" class="page-num">2</a>
-                <a href="#" class="page-num">3</a>
-                <a href="#" class="page-num">4</a>
-                <a href="#" class="page-num">5</a>
-                <a href="#" class="page-num">6</a>
-                <a href="#" class="page-num">7</a>
-                <a href="#" class="page-num">8</a>
-                <a href="#" class="page-num">9</a>
-                <a href="#" class="page-num">10</a>
-                <a href="#" class="page-next" aria-label="다음 페이지"><i class="ri-arrow-right-s-line"></i></a>
-            </div>
-        </section>
+      <!-- ===== List ===== -->
+      <section class="list-section">
+        <p class="list__empty" id="emptyMsg" hidden>검색 결과가 없습니다.</p>
+        <ul class="list" id="list"></ul>
+        <nav class="pagination" id="pagination" aria-label="페이지 이동"></nav>
+      </section>
     </main>
 
-    <!-- 푸터 -->
+    <!-- ===== Footer ===== -->
     <footer class="footer">
-        <div class="inner">
-            <div class="footer-top">
-                <div class="footer-left">
-                    <ul class="footer-menu">
-                        <li><a href="#">고객지원</a></li>
-                        <li><a href="#">약관 및 정책</a></li>
-                    </ul>
-                    <ul class="footer-sns">
-                        <li><a href="#" class="sns-fb" aria-label="페이스북"><i class="ri-facebook-box-fill"></i></a></li>
-                        <li><a href="#" class="sns-insta" aria-label="인스타그램"><i class="ri-instagram-line"></i></a></li>
-                        <li><a href="#" class="sns-yt" aria-label="유튜브"><i class="ri-youtube-fill"></i></a></li>
-                        <li><a href="#" class="sns-naver" aria-label="네이버 블로그">N</a></li>
-                    </ul>
-                </div>
-                <div class="footer-cs">
-                    <p class="cs-tel"><span>고객센터</span><strong>064-702-1104</strong></p>
-                    <p class="cs-time">09:00-18:00 (주말 17:00)<br>연중무휴 (신정/명절 당일 제외)</p>
-                </div>
-            </div>
-
-            <div class="footer-middle">
-                <img src="images/common/logo-footer.png" alt="돌하루팡" class="footer-logo">
-                <p class="footer-addr">제주특별자치도 연삼로 38, 연빌딩 3층 | hello@dolharupang.com | 대표이사 : 문경보 | 관광사업등록번호 : 제 2025-22호 | 여행공제보험 : 제 13-26-0395호</p>
-            </div>
-
-            <div class="footer-bottom">
-                <div class="footer-biz">
-                    <p>돌하루팡 [사업자등록번호 : 616-29-29782 | 통신판매업 신고번호 : 2012-제주연동-0062호]</p>
-                    <p>주식회사 제주페이 [사업자등록번호 : 739-88-00561 | 통신판매업 신고번호 : 2019-제주연동-0085호]</p>
-                    <p class="footer-safe">돌하루팡은 제주공식 우수 관광사업체로 안전거래를 보장합니다.</p>
-                </div>
-                <img src="images/common/footer-certs.png" alt="인증 마크" class="footer-certs">
-            </div>
+      <div class="footer__inner">
+        <div class="footer__top">
+          <div>
+            <ul class="footer__links">
+              <li><a href="#">고객지원</a></li>
+              <li><a href="#">약관 및 정책</a></li>
+            </ul>
+            <ul class="sns">
+              <li><a href="#" class="sns__fb" aria-label="facebook">f</a></li>
+              <li><a href="#" class="sns__ig" aria-label="instagram">◎</a></li>
+              <li><a href="#" class="sns__yt" aria-label="youtube">▶</a></li>
+              <li><a href="#" class="sns__nv" aria-label="naver">N</a></li>
+            </ul>
+          </div>
+          <div class="cs">
+            <p class="cs__tel">
+              <span>고객센터</span> <strong>064-702-1104</strong>
+            </p>
+            <p>09:00~18:00 (주말, 공휴일 휴무)</p>
+            <p>점심시간 12:00~13:00</p>
+          </div>
         </div>
+
+        <div class="footer__logo">🗿 <span>돌하루팡</span></div>
+
+        <p class="footer__info">
+          제주특별자치도 제주시 연삼로 38, 한일빌딩 3층 | hello@dolharupang.com
+          | 대표자 : 홍길동 | 사업자등록번호 : 000-00-00000<br />
+          통신판매업 신고번호 : 제2026-제주-0000호 | 관광사업등록번호 :
+          제2026-000000호
+        </p>
+        <p class="footer__notice">
+          돌하루팡은 통신판매중개자로서 상품정보 및 거래에 대한 책임은 각
+          판매자에게 있습니다.
+        </p>
+        <p class="footer__copy">© 2026 DOLHARUPANG. All rights reserved.</p>
+
+        <div class="certs">
+          <span class="cert">KSA</span>
+          <span class="cert">♣</span>
+          <span class="cert">◉</span>
+          <span class="cert">◎</span>
+        </div>
+      </div>
     </footer>
-</body>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/stays.js"></script>
+  </body>
 </html>
