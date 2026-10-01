@@ -2,7 +2,7 @@
 :root {
     --blue: #0a78ff;
     --blue-light: #e5f2ff;
-    --text: #222;
+    --text: #333;
     --text-sub: #666;
     --line: #333;
     --line-light: #e5e7eb;
@@ -20,6 +20,8 @@ body {
     font-family: "Pretendard", sans-serif;
     color: var(--text);
     background: var(--bg);
+    font-size: 16px;
+    font-weight: 400;
 }
 
 a {
@@ -49,21 +51,201 @@ svg {
 }
 
 .inner {
-    max-width: 1400px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-
-
-/* 파란 선 */
-.price-track {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 3px; 
-    transform: translateY(-50%);
+/* header */
+.header {
     background: var(--blue);
-    border-radius: 2px;
+    color: #fff;
+}
+
+.header-inner {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-logo img {
+    display: block;
+    height: 24px;
+}
+
+.gnb {
+    display: flex;
+    gap: 16px;
+}
+
+.gnb-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+}
+.ico {
+    width: 25px;
+    height: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.ico-cars {
+    background-image: url(../images/common/ico_cars.png);
+}
+.ico-stays {
+    background-image: url(../images/common/ico_stays.png);
+}
+.ico-event {
+    background-image: url(../images/common/ico_event.png);
+}
+.ico-guide {
+    background-image: url(../images/common/ico_guide.png);
+}
+
+.gnb-item:hover,
+.gnb-item.is-active {
+    background: rgba(255, 255, 255, 0.3);
+     transition: all 0.3s ease;
+}
+
+.header-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+.ico-user {
+    background-image: url(../images/common/ico_user.png);
+}
+
+/* footer */
+.footer {
+    background: var(--footer-bg);
+    padding: 40px 0;
+    color: var(--text);
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.footer-menu {
+    display: flex;
+    gap: 45px;
+    color: var(--text);
+}
+
+.footer-sns {
+    display: flex;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.footer-sns a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    font-weight: 800;
+    font-size: 18px;
+    text-indent: -99999px;
+}
+
+.ico-facebook {
+    background-image: url(../images/common/ico_facebook.png);
+}
+
+.ico-instagram {
+    background-image: url(../images/common/ico_instagram.png);
+}
+
+.ico-youtube {
+    background-image: url(../images/common/ico_youtube.png);
+}
+
+.ico-naver {
+    background-image: url(../images/common/ico_naver.png);
+}
+
+.footer-cs {
+    text-align: right;
+    line-height: 1.6;
+}
+
+.cs-phone {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--blue);
+}
+
+.cs-phone span {
+    margin-right: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.footer-company {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 25px 0;
+    font-size: 14px;
+    color: #666;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.footer-qr {
+    display: flex;
+    gap: 20px;
+}
+.footer-qr p {
+    color: #333;
+}
+.footer-qr .qr {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.footer-qr .qr.ios {
+    background-image: url(../images/common/ios.png); 
+}
+.footer-qr .qr.android {
+    background-image: url(../images/common/android.png);
+}
+
+.footer-logo {
+    display: block;
+    height: 56px;
+    margin-bottom: 14px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 30px;
+    line-height: 1.7;
+}
+
+.footer-safe {
+    color: var(--blue);
+    font-weight: 600;
+}
+
+.footer-certs {
+    height: 50px;
 }
