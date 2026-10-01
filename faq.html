@@ -5,46 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>돌하루팡 - 이용가이드(자주 묻는 질문)</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
-    <link rel="stylesheet" href="css/common/common.css">
-    <link rel="stylesheet" href="css/faq/faq.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/faq.css">
 </head>
 
 <body>
-    <!-- 공통 헤더 -->
+    <!-- [S] header -->
     <header class="header">
         <div class="inner header-inner">
             <a href="index.html" class="header-logo">
-                <img src="images/common/logo-white.png" alt="돌하루팡">
+                <img src="images/common/header_logo.png" alt="돌하루팡로고">
             </a>
 
             <nav class="gnb">
-                <a href="cars.html" class="gnb-item">
-                    <svg viewBox="0 0 24 24"><path d="M5 17h14v-5l-2-5H7l-2 5v5z"/><circle cx="7.5" cy="17" r="1.5"/><circle cx="16.5" cy="17" r="1.5"/><path d="M5 12h14"/></svg>
-                    렌터카
-                </a>
-                <a href="stays.html" class="gnb-item">
-                    <svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg>
-                    최저가 숙소
-                </a>
-                <a href="review.html" class="gnb-item">
-                    <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M9 6v12" stroke-dasharray="2 2"/><path d="M13 10l4 4M17 10l-4 4"/></svg>
-                    혜택 및 이벤트
-                </a>
-                <a href="faq.html" class="gnb-item is-active">
-                    <svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/><path d="M9 8h6"/></svg>
-                    이용가이드
-                </a>
+                <a href="cars.html" class="gnb-item"><i class="ico ico-cars"></i>렌터카</a>
+                <a href="stays.html" class="gnb-item"><i class="ico ico-stays"></i>최저가 숙소</a>
+                <a href="stays.html" class="gnb-item"><i class="ico ico-event"></i>혜택 및 이벤트</a>
+                <a href="stays.html" class="gnb-item is-active"><i class="ico ico-guide"></i>이용가이드</a>
             </nav>
 
-            <a href="#" class="header-user">
-                OOO 님
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M6.5 18.5c1.5-2 3.4-3 5.5-3s4 1 5.5 3"/></svg>
-            </a>
+            <a href="#" class="header-user">OOO 님<i class="ico ico-user"></i></a><!-- 로그인 시 이름 노출 -->
         </div>
     </header>
+    <!-- // [E] header -->
 
     <main>
-        <!-- 상단 비주얼 -->
         <section class="faq-hero">
             <h1>자주 묻는 질문</h1>
         </section>
@@ -84,24 +69,21 @@
         </section>
     </main>
 
-    <!-- 공통 푸터 -->
+    <!-- [S] footer -->
     <footer class="footer">
         <div class="inner">
             <div class="footer-top">
                 <div>
                     <ul class="footer-menu">
-                        <li><a href="#">고객지원</a></li>
-                        <li><a href="#">약관 및 정책</a></li>
+                        <li><a href="javascript:void(0)">고객지원</a></li>
+                        <li><a href="javascript:void(0)">약관 및 정책</a></li>
                     </ul>
+
                     <ul class="footer-sns">
-                        <li><a href="#" class="sns-facebook" aria-label="페이스북">f</a></li>
-                        <li><a href="#" class="sns-instagram" aria-label="인스타그램">
-                            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-                        </a></li>
-                        <li><a href="#" class="sns-youtube" aria-label="유튜브">
-                            <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4" fill="currentColor" stroke="none"/><path d="M10 9l5 3-5 3z" fill="#fff" stroke="none"/></svg>
-                        </a></li>
-                        <li><a href="#" class="sns-naver" aria-label="네이버">N</a></li>
+                        <li><a href="https://www.facebook.com/dolharupang/" target="_blank" class="ico ico-facebook" aria-label="페이스북">페이스북</a></li>
+                        <li><a href="https://www.instagram.com/dolharupang/" target="_blank" class="ico ico-instagram" aria-label="인스타그램">인스타그램</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCVTTu19QIpyo58nvNyuDf8Q" target="_blank"class="ico ico-youtube" aria-label="유튜브">유튜브</a></li>
+                        <li><a href="https://blog.naver.com/khb1000je" target="_blank" class="ico ico-naver" aria-label="네이버">네이버</a></li>
                     </ul>
                 </div>
 
@@ -113,8 +95,22 @@
             </div>
 
             <div class="footer-company">
-                <img src="images/common/logo-footer.png" alt="돌하루팡" class="footer-logo">
-                <p>제주특별자치도 연삼로 38, 연빌딩 3층 | hello@dolharupang.com | 대표이사 : 문경보 | 관광사업등록번호 : 제 2025-22호 | 여행공제보험 : 제 13-26-0395호</p>
+                <div>
+                    <img src="images/common/logo-footer.png" alt="돌하루팡 로고" class="footer-logo">
+                    <p>제주특별자치도 연삼로 38, 연빌딩 3층 | hello@dolharupang.com | 대표이사 : 문경보 | 관광사업등록번호 : 제 2025-22호 | 여행공제보험 : 제 13-26-0395호</p>
+                </div>
+
+                <div class="footer-qr">
+                    <div>
+                        <p>iOS</p>
+                        <i class="qr ios"></i>
+                    </div>
+                    
+                    <div>
+                        <p>Android</p>
+                        <i class="qr android"></i>
+                    </div>
+                </div>
             </div>
 
             <div class="footer-bottom">
@@ -127,6 +123,7 @@
             </div>
         </div>
     </footer>
+    <!-- // [E] footer -->
 
     <script src="js/faq-data.js"></script>
     <script src="js/faq.js"></script>
