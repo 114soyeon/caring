@@ -1,0 +1,69 @@
+/* 공통: 리셋, 색상, 헤더, 푸터 (모든 페이지에서 같이 씀) */
+:root {
+    --blue: #0a78ff;
+    --blue-light: #e5f2ff;
+    --text: #222;
+    --text-sub: #666;
+    --line: #333;
+    --line-light: #e5e7eb;
+    --bg: #edf2f6;
+    --footer-bg: #f3f4f6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Pretendard", sans-serif;
+    color: var(--text);
+    background: var(--bg);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    font: inherit;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+
+/* 파란 선 */
+.price-track {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px; 
+    transform: translateY(-50%);
+    background: var(--blue);
+    border-radius: 2px;
+}
