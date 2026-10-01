@@ -1,0 +1,625 @@
+/* 메인 (index.html) */
+:root {
+    --visual-bg: #dbe7fc;
+    --navy: #0a1024;
+    --cyan: #1a9cbf;
+    --cyan-line: #8fd8ea;
+    --cyan-bg: #eef7fa;
+    --blue-soft: #4aa2f4;
+    --gray: #9aa1ab;
+}
+
+/* ---------- 메인 비주얼 ---------- */
+.main-visual {
+    /* 위쪽은 연한 파랑, 검색 박스 중간쯤부터 기본 배경 */
+    background: linear-gradient(var(--visual-bg) 0 calc(100% - 112px), transparent 0);
+    padding-top: 8px;
+}
+
+/* 슬라이더 */
+.slider {
+    position: relative;
+    height: 448px;
+    border-radius: 30px;
+    overflow: hidden;
+    background: var(--navy);
+}
+
+.slide-list {
+    position: relative;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #fff;
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.slide.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 이미지가 생기면 background-image: url(../images/main/slide-01.jpg) 로 바꾸면 됨 */
+.slide-1 { background-color: var(--navy); }
+.slide-2 { background-image: linear-gradient(135deg, #0a3d91, #0a78ff); }
+.slide-3 { background-image: linear-gradient(135deg, #0b4f5c, #1a9cbf); }
+
+.slide-sub {
+    font-size: 18px;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+.slide-1 .slide-sub {
+    display: none; /* 시안처럼 '슬라이더' 글자만 */
+}
+
+.slide-title {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.slider-ctrl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 45px 0;
+    font-size: 14px;
+    color: var(--text-sub);
+}
+
+.slider-all:hover {
+    color: var(--blue);
+}
+
+.slider-btns {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    color: var(--gray);
+}
+
+.slider-count {
+    margin-right: 8px;
+    font-size: 13px;
+}
+
+.slider-count b {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.slider-btn {
+    display: flex;
+    padding: 2px;
+    color: var(--gray);
+}
+
+.slider-btn:hover {
+    color: var(--blue);
+}
+
+.slider-btn svg {
+    width: 22px;
+    height: 22px;
+    stroke-width: 2.4;
+}
+
+.slider-btn .ico-play {
+    display: none;
+    fill: currentColor;
+    width: 18px;
+    height: 18px;
+}
+
+/* 일시정지 상태면 재생 아이콘으로 바뀜 */
+.slider.is-paused ~ .slider-ctrl .ico-pause { display: none; }
+.slider.is-paused ~ .slider-ctrl .ico-play { display: block; }
+
+/* 대여 조건 검색 */
+.main-search {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1300px;
+    margin: 104px auto 0;
+    padding: 56px 66px 56px 74px;
+    background: #fff;
+    border-radius: 30px;
+}
+
+.search-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 54px;
+    padding: 0 14px;
+    background: #f1f5fb;
+    border-radius: 8px;
+    color: #444;
+    cursor: text;
+}
+
+.search-field svg {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+}
+
+.search-field input {
+    width: 100%;
+    border: none;
+    background: none;
+    font: inherit;
+    font-size: 18px;
+    color: var(--text);
+    outline: none;
+}
+
+.search-field input::placeholder {
+    color: #c3c7cd;
+}
+
+.search-field:focus-within {
+    box-shadow: 0 0 0 2px var(--blue) inset;
+}
+
+.search-place {
+    flex: 1.4;
+}
+
+.search-field:not(.search-place) {
+    flex: 1;
+}
+
+.search-field.is-error {
+    box-shadow: 0 0 0 2px #ff4d4f inset;
+}
+
+.search-submit {
+    flex-shrink: 0;
+    height: 58px;
+    padding: 0 36px;
+    margin-left: 28px;
+    border-radius: 30px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    transition: background 0.2s;
+}
+
+.search-submit:hover {
+    background: #0062d9;
+}
+
+/* ---------- 날씨 ---------- */
+.weather {
+    padding: 62px 0 60px;
+}
+
+.weather-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-today {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-right: 32px;
+    margin-right: 22px;
+    border-right: 2px solid #c9def8;
+}
+
+.weather-today .w-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.today-temp {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--blue);
+    margin-right: 10px;
+}
+
+.today-text {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.today-text span {
+    display: block;
+    color: var(--blue-soft);
+}
+
+.weather-week {
+    display: flex;
+    gap: 30px;
+}
+
+.weather-day {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.weather-day .w-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 4px;
+}
+
+.weather-day .w-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.w-temp {
+    line-height: 1.2;
+}
+
+.w-temp b {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.w-temp small {
+    font-size: 11px;
+    color: var(--gray);
+}
+
+/* 날씨 아이콘 (svg 기본 스타일 덮어쓰기) */
+.w-icon {
+    stroke: none;
+}
+
+/* ---------- 이용 고객 + 실시간 예약 ---------- */
+.booking {
+    padding-bottom: 240px;
+}
+
+.booking-box {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    max-width: 1230px;
+    margin: 0 auto;
+    padding: 18px 38px 18px 62px;
+    background: var(--cyan-bg);
+    border-radius: 30px;
+}
+
+.booking-info {
+    flex-shrink: 0;
+    width: 380px;
+}
+
+.booking-info h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--blue-soft);
+}
+
+.booking-count {
+    margin: 18px 0 30px;
+    font-size: 52px;
+    font-weight: 800;
+    color: var(--blue);
+    letter-spacing: -0.5px;
+    font-variant-numeric: tabular-nums;
+}
+
+.booking-desc {
+    font-size: 17px;
+    line-height: 1.35;
+}
+
+/* 5줄만 보이고 위로 한 줄씩 굴러감 */
+.booking-roll {
+    flex: 1;
+    height: 280px; /* 48px * 5 + 10px * 4 */
+    overflow: hidden;
+}
+
+.booking-list {
+    transition: transform 0.6s ease;
+}
+
+.booking-list.no-anim {
+    transition: none;
+}
+
+.booking-item {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    margin-bottom: 10px;
+    padding: 0 16px 0 22px;
+    background: #fff;
+    border-left: 4px solid var(--cyan-line);
+    font-size: 13px;
+    color: var(--text-sub);
+}
+
+.booking-item svg {
+    flex-shrink: 0;
+}
+
+.b-time {
+    width: 56px;
+    color: var(--gray);
+}
+
+.b-car {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 138px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+}
+
+.b-car svg {
+    width: 30px;
+    height: 22px;
+    color: var(--cyan);
+}
+
+.b-place {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.b-user {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 80px;
+    font-size: 15px;
+}
+
+.b-user svg {
+    color: var(--text);
+}
+
+.b-badge {
+    padding: 4px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #127f9d;
+    background: #d6f2f9;
+    border: 1px solid #a8e2f0;
+}
+
+.b-visit {
+    margin-left: 8px;
+    padding: 5px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-sub);
+    background: #f1f3f6;
+}
+
+.b-visit:hover {
+    background: var(--blue);
+    color: #fff;
+}
+
+/* ---------- 플로팅 버튼 ---------- */
+.floating {
+    position: fixed;
+    right: 40px;
+    bottom: 120px;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.btn-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #d5dbe2;
+    color: #b4bcc6;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.btn-top.is-show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn-top:hover {
+    color: var(--blue);
+    border-color: var(--blue);
+}
+
+.btn-talk {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* footer_logo.png 왼쪽 돌하르방 얼굴만 잘라서 보여줌 */
+.talk-face {
+    width: 40px;
+    height: 40px;
+    margin-bottom: -8px;
+    background: url(../images/common/footer_logo.png) left center / auto 100% no-repeat;
+}
+
+.talk-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.talk-label svg {
+    width: 14px;
+    height: 14px;
+    color: #ffe14d;
+}
+
+.btn-talk:hover .talk-label {
+    background: #0062d9;
+}
+
+/* footer QR 글씨 가운데 정렬 */
+.footer-qr > div {
+    text-align: center;
+}
+
+.footer-qr p {
+    margin-bottom: 4px;
+}
+
+/* ---------- 반응형 ---------- */
+@media (max-width: 1280px) {
+    .main-search {
+        gap: 20px;
+        padding: 40px;
+    }
+
+    .search-submit {
+        margin-left: 0;
+    }
+
+    .weather-week {
+        gap: 18px;
+    }
+
+    .booking-box {
+        gap: 40px;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .slider {
+        height: 340px;
+    }
+
+    .main-search {
+        flex-wrap: wrap;
+        margin-top: 60px;
+    }
+
+    .search-place {
+        flex-basis: 100%;
+    }
+
+    .search-submit {
+        width: 100%;
+    }
+
+    .main-visual {
+        background: linear-gradient(var(--visual-bg) 0 calc(100% - 140px), transparent 0);
+    }
+
+    .weather-inner {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .weather-today {
+        border-right: none;
+        padding-right: 0;
+        margin-right: 0;
+    }
+
+    .weather-week {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .booking-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .booking-info {
+        width: auto;
+        text-align: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .slider {
+        height: 220px;
+        border-radius: 20px;
+    }
+
+    .slide-title {
+        font-size: 24px;
+    }
+
+    .slider-ctrl {
+        padding: 12px 8px 0;
+    }
+
+    .main-search {
+        padding: 24px;
+        border-radius: 20px;
+    }
+
+    .search-field {
+        flex-basis: 100%;
+    }
+
+    .booking-count {
+        font-size: 38px;
+    }
+
+    .b-place,
+    .b-time {
+        display: none;
+    }
+
+    .b-car {
+        flex: 1;
+        width: auto;
+    }
+
+    .floating {
+        right: 16px;
+        bottom: 40px;
+    }
+}
