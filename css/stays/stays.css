@@ -1,0 +1,200 @@
+@charset "UTF-8";
+
+.stays { padding-bottom: 150px; }
+
+/* ===== 비주얼 ===== */
+.stays-visual {
+    height: 345px;
+    padding-top: 140px;
+    background: #2a8fb5 url(../../images/stays/visual.jpg) center / cover no-repeat;
+    text-align: center;
+}
+.stays-title {
+    font-size: 38px;
+    font-weight: 800;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+}
+
+/* ===== 검색 ===== */
+.stays-search {
+    position: relative;
+    z-index: 1;
+    width: 914px;
+    margin: -62px auto 0;
+}
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 40px 48px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .04);
+}
+.search-field {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 38px;
+    padding: 0 10px;
+    background: #f1f4f8;
+    border-radius: 4px;
+    color: #333;
+    cursor: text;
+}
+.search-field i { font-size: 18px; }
+.search-field input {
+    flex: 1;
+    min-width: 0;
+    font-size: 13px;
+    color: #333;
+}
+.search-field input::placeholder { color: #b5bbc4; }
+.field-place { width: 218px; }
+.field-date { width: 155px; }
+.field-date + .field-date { margin-left: -2px; }
+.btn-search {
+    height: 40px;
+    margin-left: auto;
+    padding: 0 26px;
+    border-radius: 20px;
+    background: var(--primary);
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    transition: background .2s;
+}
+.btn-search:hover { background: #0b68e3; }
+
+/* ===== 지도 ===== */
+.stays-map {
+    width: 1200px;
+    margin: 65px auto 0;
+}
+.map-box {
+    position: relative;
+    height: 560px;
+    background: #cfe8f2;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.map-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.map-price {
+    position: absolute;
+    top: 170px;
+    left: 432px;
+    padding: 8px 14px;
+    background: #fff;
+    border: 2px solid #222;
+    border-radius: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .2);
+    font-size: 18px;
+    font-weight: 800;
+}
+.map-pin {
+    position: absolute;
+    top: 258px;
+    left: 554px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .15);
+    font-size: 16px;
+    font-weight: 700;
+}
+.map-pin::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #fff;
+    border-bottom: 0;
+}
+
+/* ===== 숙소 목록 ===== */
+.stays-list {
+    width: 1110px;
+    margin: 78px auto 0;
+}
+.stay-items {
+    display: grid;
+    grid-template-columns: repeat(4, 218px);
+    justify-content: space-between;
+}
+.stay-thumb {
+    height: 194px;
+    border-radius: 20px;
+    background: #d9dee5;
+    overflow: hidden;
+}
+.stay-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .3s;
+}
+.stay-item a:hover .stay-thumb img { transform: scale(1.05); }
+.stay-info { padding-top: 16px; }
+.stay-name {
+    margin-bottom: 4px;
+    font-size: 13px;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.stay-room {
+    margin-bottom: 6px;
+    font-size: 10px;
+    color: var(--gray);
+}
+.stay-date {
+    margin-bottom: 8px;
+    font-size: 10px;
+    font-weight: 600;
+}
+.stay-price {
+    font-size: 9px;
+    font-weight: 700;
+}
+
+/* ===== 페이지네이션 ===== */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 95px;
+}
+.pagination a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 12px;
+    color: #333;
+}
+.pagination .page-prev,
+.pagination .page-next {
+    font-size: 16px;
+    color: #999;
+}
+.pagination .page-prev { margin-right: 6px; }
+.pagination .page-next { margin-left: 6px; }
+.pagination .page-num:hover { color: var(--primary); }
+.pagination .page-num.active {
+    background: var(--primary);
+    color: #fff;
+}

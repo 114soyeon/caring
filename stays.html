@@ -4,9 +4,172 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>돌하루팡 - 최저가숙소</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+    <link rel="stylesheet" href="css/common/common.css">
+    <link rel="stylesheet" href="css/stays/stays.css">
 </head>
 
 <body>
-    
+    <!-- 헤더 -->
+    <header class="header">
+        <div class="inner header-inner">
+            <h1 class="logo">
+                <a href="index.html">
+                    <img src="images/common/logo-white.png" alt="돌하루팡">
+                </a>
+            </h1>
+            <nav class="gnb">
+                <ul>
+                    <li><a href="cars.html"><i class="ri-car-line"></i>렌터카</a></li>
+                    <li class="active"><a href="stays.html"><i class="ri-home-4-line"></i>최저가 숙소</a></li>
+                    <li><a href="#"><i class="ri-coupon-3-line"></i>혜택 및 이벤트</a></li>
+                    <li><a href="faq.html"><i class="ri-book-marked-line"></i>이용가이드</a></li>
+                </ul>
+            </nav>
+            <div class="user">
+                <span>OOO 님</span>
+                <a href="#" class="user-icon" aria-label="마이페이지"><i class="ri-account-circle-line"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="stays">
+        <!-- 비주얼 + 검색 -->
+        <section class="stays-visual">
+            <h2 class="stays-title">최저가 숙소</h2>
+        </section>
+
+        <section class="stays-search">
+            <form class="search-box" action="#">
+                <label class="search-field field-place">
+                    <i class="ri-map-pin-line"></i>
+                    <input type="text" placeholder="어디로 갈까요">
+                </label>
+                <label class="search-field field-date">
+                    <i class="ri-calendar-schedule-line"></i>
+                    <input type="text" placeholder="시작날짜" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
+                </label>
+                <label class="search-field field-date">
+                    <i class="ri-calendar-line"></i>
+                    <input type="text" placeholder="종료날짜" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
+                </label>
+                <button type="submit" class="btn-search">최저가 가격비교 시작</button>
+            </form>
+        </section>
+
+        <!-- 지도 -->
+        <section class="stays-map">
+            <div class="map-box">
+                <img src="images/stays/map.png" alt="제주도 숙소 지도" class="map-img">
+                <span class="map-price">₩79,982,879</span>
+                <span class="map-pin"><i class="ri-map-pin-2-fill"></i>제주</span>
+            </div>
+        </section>
+
+        <!-- 숙소 목록 -->
+        <section class="stays-list">
+            <ul class="stay-items">
+                <li class="stay-item">
+                    <a href="#">
+                        <div class="stay-thumb"><img src="images/stays/stay01.jpg" alt="서귀포시 펜션"></div>
+                        <div class="stay-info">
+                            <h3 class="stay-name">서귀포시 펜션 #서쪽집 #모던한옥 #감성숙소</h3>
+                            <p class="stay-room">침실2개 · 침대 2개 · 욕실2개</p>
+                            <p class="stay-date">10월31일-11월5일</p>
+                            <p class="stay-price">KRW 1,278,205</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="stay-item">
+                    <a href="#">
+                        <div class="stay-thumb"><img src="images/stays/stay02.jpg" alt="제주 독채 펜션"></div>
+                        <div class="stay-info">
+                            <h3 class="stay-name">[오픈특가] 제주 독채 펜션 #통창유리 #오션뷰</h3>
+                            <p class="stay-room">침실2개 · 침대 2개 · 욕실2개</p>
+                            <p class="stay-date">9월29일-10월4일</p>
+                            <p class="stay-price">KRW 1,800,500</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="stay-item">
+                    <a href="#">
+                        <div class="stay-thumb"><img src="images/stays/stay03.jpg" alt="애월읍 펜션"></div>
+                        <div class="stay-info">
+                            <h3 class="stay-name">애월읍 펜션</h3>
+                            <p class="stay-room">침실2개 · 침대 2개 · 욕실1개</p>
+                            <p class="stay-date">10월5일-10월10일</p>
+                            <p class="stay-price">KRW 1,277,112</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="stay-item">
+                    <a href="#">
+                        <div class="stay-thumb"><img src="images/stays/stay04.jpg" alt="제주 아파트"></div>
+                        <div class="stay-info">
+                            <h3 class="stay-name">제주 아파트 #공항근처 #가성비</h3>
+                            <p class="stay-room">침실1개 · 침대 2개 · 욕실1개</p>
+                            <p class="stay-date">10월1일-10월5일</p>
+                            <p class="stay-price">KRW 277,455</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- 페이지네이션 -->
+            <div class="pagination">
+                <a href="#" class="page-prev" aria-label="이전 페이지"><i class="ri-arrow-left-s-line"></i></a>
+                <a href="#" class="page-num active">1</a>
+                <a href="#" class="page-num">2</a>
+                <a href="#" class="page-num">3</a>
+                <a href="#" class="page-num">4</a>
+                <a href="#" class="page-num">5</a>
+                <a href="#" class="page-num">6</a>
+                <a href="#" class="page-num">7</a>
+                <a href="#" class="page-num">8</a>
+                <a href="#" class="page-num">9</a>
+                <a href="#" class="page-num">10</a>
+                <a href="#" class="page-next" aria-label="다음 페이지"><i class="ri-arrow-right-s-line"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="inner">
+            <div class="footer-top">
+                <div class="footer-left">
+                    <ul class="footer-menu">
+                        <li><a href="#">고객지원</a></li>
+                        <li><a href="#">약관 및 정책</a></li>
+                    </ul>
+                    <ul class="footer-sns">
+                        <li><a href="#" class="sns-fb" aria-label="페이스북"><i class="ri-facebook-box-fill"></i></a></li>
+                        <li><a href="#" class="sns-insta" aria-label="인스타그램"><i class="ri-instagram-line"></i></a></li>
+                        <li><a href="#" class="sns-yt" aria-label="유튜브"><i class="ri-youtube-fill"></i></a></li>
+                        <li><a href="#" class="sns-naver" aria-label="네이버 블로그">N</a></li>
+                    </ul>
+                </div>
+                <div class="footer-cs">
+                    <p class="cs-tel"><span>고객센터</span><strong>064-702-1104</strong></p>
+                    <p class="cs-time">09:00-18:00 (주말 17:00)<br>연중무휴 (신정/명절 당일 제외)</p>
+                </div>
+            </div>
+
+            <div class="footer-middle">
+                <img src="images/common/logo-footer.png" alt="돌하루팡" class="footer-logo">
+                <p class="footer-addr">제주특별자치도 연삼로 38, 연빌딩 3층 | hello@dolharupang.com | 대표이사 : 문경보 | 관광사업등록번호 : 제 2025-22호 | 여행공제보험 : 제 13-26-0395호</p>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-biz">
+                    <p>돌하루팡 [사업자등록번호 : 616-29-29782 | 통신판매업 신고번호 : 2012-제주연동-0062호]</p>
+                    <p>주식회사 제주페이 [사업자등록번호 : 739-88-00561 | 통신판매업 신고번호 : 2019-제주연동-0085호]</p>
+                    <p class="footer-safe">돌하루팡은 제주공식 우수 관광사업체로 안전거래를 보장합니다.</p>
+                </div>
+                <img src="images/common/footer-certs.png" alt="인증 마크" class="footer-certs">
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
