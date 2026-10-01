@@ -1,0 +1,326 @@
+/* 렌터카 */
+
+/* 상단 비주얼 */
+.cars-hero {
+    height: 500px;
+    padding-top: 150px;
+    text-align: center;
+    background: #6b7a3a url("../../images/cars/cars-hero.jpg") center / cover no-repeat;
+}
+
+.cars-hero h1 {
+    font-size: 56px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 대여 조건 검색 (비주얼 아래쪽에 걸쳐 올라감) */
+.rent-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1320px;
+    margin: -88px auto 0;
+    padding: 60px 70px;
+    background: #fff;
+    border-radius: 30px;
+}
+
+.rent-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 54px;
+    padding: 0 16px;
+    background: #f1f5fb;
+    border-radius: 8px;
+    color: #555;
+}
+
+.rent-field svg {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+}
+
+.rent-field input {
+    width: 100%;
+    border: none;
+    background: none;
+    font: inherit;
+    font-size: 16px;
+    outline: none;
+}
+
+.rent-field input::placeholder {
+    color: #c7cacf;
+}
+
+.rent-place {
+    flex: 1.3;
+}
+
+.rent-field:not(.rent-place) {
+    flex: 1;
+}
+
+.rent-submit {
+    flex-shrink: 0;
+    height: 56px;
+    padding: 0 36px;
+    margin-left: auto;
+    border-radius: 30px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+/* 필터 + 차량 목록 */
+.cars-body {
+    padding: 94px 0 140px;
+}
+
+.cars-layout {
+    display: flex;
+    gap: 30px;
+    align-items: stretch;
+}
+
+/* 왼쪽 필터 */
+.filter {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    width: 358px;
+    padding: 34px 34px 0;
+    background: #fff;
+    border-radius: 30px;
+}
+
+.filter-group {
+    padding: 0 0 36px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.filter-group:nth-last-of-type(1) {
+    border-bottom: none;
+}
+
+.filter h2 {
+    margin-bottom: 18px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.model-search {
+    display: flex;
+    gap: 6px;
+}
+
+.model-search input {
+    flex: 1;
+    min-width: 0;
+    height: 54px;
+    padding: 0 14px;
+    border: none;
+    border-radius: 8px;
+    background: #f1f5fb;
+    font: inherit;
+    font-size: 16px;
+}
+
+.model-search button {
+    padding: 0 20px;
+    border-radius: 8px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.radio-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 18px;
+}
+
+.radio-list label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.radio-list input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--blue);
+}
+
+.price-text {
+    margin-bottom: 18px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #2e8cff;
+}
+
+/* 손잡이 두 개 슬라이더 */
+.price-range {
+    position: relative;
+    height: 24px;
+}
+
+.price-range::before {
+    content: "";
+    position: absolute;
+    top: 11px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #dbe4ee;
+}
+
+.price-track {
+    position: absolute;
+    top: 11px;
+    height: 3px;
+    background: #2e8cff;
+}
+
+.price-range input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 24px;
+    margin: 0;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.price-range input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 4px solid #2e8cff;
+    border-radius: 50%;
+    background: #fff;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.price-range input::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border: 4px solid #2e8cff;
+    border-radius: 50%;
+    background: #fff;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.filter-reset {
+    width: 250px;
+    height: 72px;
+    margin: auto auto 36px;
+    border-radius: 36px;
+    background: #f1f5fb;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* 차량 목록 */
+.car-list-wrap {
+    flex: 1;
+}
+
+.car-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px 30px;
+}
+
+.car-card {
+    position: relative;
+    padding: 20px 32px 26px;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.car-card img {
+    display: block;
+    height: 180px;
+    margin-bottom: 12px;
+}
+
+.car-name {
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.car-price {
+    margin-top: 6px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #e62929;
+}
+
+.car-price span {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.car-toggle {
+    position: absolute;
+    top: 26px;
+    right: 36px;
+    color: #888;
+}
+
+.car-toggle svg {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.2s;
+}
+
+.car-card.is-open .car-toggle svg {
+    transform: rotate(180deg);
+}
+
+/* 펼치면 보이는 상세 */
+.car-detail {
+    display: none;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #555;
+}
+
+.car-card.is-open .car-detail {
+    display: block;
+}
+
+.car-detail b {
+    display: inline-block;
+    width: 60px;
+    color: #222;
+}
+
+.car-empty {
+    padding: 100px 0;
+    text-align: center;
+    font-size: 20px;
+    color: #888;
+}
