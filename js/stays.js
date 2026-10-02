@@ -20,7 +20,7 @@ const MAX_PAGE_BUTTONS = 10;
 })();
 
 const NAMES = [
-  ["서귀포시 펜션 #석목집 #모던한옥 #", "서귀포시"],
+  ["서귀포시 펜션 #석목집 #모던한옥 #제주", "서귀포시"],
   ["[오픈특가] 제주 독채 펜션 #통창유리 #", "제주시"],
   ["애월읍 펜션", "애월"],
   ["제주 아치트 #공항근처 #", "제주시"],
@@ -65,7 +65,7 @@ const accommodations = Array.from({ length: 40 }, (_, i) => {
     guests: `최대 ${2 + (i % 5)}인`,
     price: 180000 + ((i * 97331) % 1500000),
     image: STAY_IMAGES[i % STAY_IMAGES.length],
-    
+
     /*`https://picsum.photos/seed/jeju-stay-${i}/600/500`,*/
   };
 });
