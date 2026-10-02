@@ -4,9 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>돌하루팡 - 리뉴얼</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-    
+    <!-- [S] header -->
+    <header class="header">
+        <div class="inner header-inner">
+            <a href="index.html" class="header-logo">
+                <img src="images/common/header_logo.png" alt="돌하루팡로고">
+            </a>
+
+            <nav class="gnb">
+                <a href="cars.html" class="gnb-item"><i class="ico ico-cars"></i>렌터카</a>
+                <a href="stays.html" class="gnb-item"><i class="ico ico-stays"></i>최저가 숙소</a>
+                <a href="event.html" class="gnb-item"><i class="ico ico-event"></i>혜택 및 이벤트</a>
+                <!-- 이용가이드 + SUB MENU -->
+                <div class="gnb-guide">
+                    <a href="faq.html" class="gnb-item"><i class="ico ico-guide"></i>이용가이드</a>
+
+                    <!-- 서브메뉴 -->
+                    <div class="sub-menu">
+                        <a href="faq.html" class="sub-menu-item">
+                            <span class="sub-menu-text">
+                                <strong>자주 묻는 질문</strong>
+                            </span>
+                        </a>
+
+                        <a href="review.html" class="sub-menu-item">
+                            <span class="sub-menu-text">
+                                <strong>고객 만족 리뷰</strong>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <a href="javascript:void(0)" class="header-user"><i class="ico ico-user"></i></a>
+        </div>
+    </header>
+    <!-- // [E] header -->
+
+    <main>
+        <!-- 메인 비주얼 + 검색 -->
+        <section class="main-visual">
+            <div class="inner">
+                <!-- 슬라이더 -->
+                <div class="slider" id="slider">
+                    <ul class="slide-list" id="slideList">
+                        <li class="slide slide-1 is-active"></li>
+                        <li class="slide slide-2"></li>
+                        <li class="slide slide-3"></li>
+                        <li class="slide slide-4"></li>
+                        <li class="slide slide-5"></li>
+                    </ul>
+                </div>
+
+                <div class="slider-ctrl">
+                    <div class="slider-btns">
+                        <button type="button" class="slider-btn" id="slidePrev" aria-label="이전 슬라이드">
+                            <img src="./images/main/prev.png" alt="">
+                        </button>
+                        <button type="button" class="slider-btn" id="slidePause" aria-label="일시정지">
+                            <img src="./images/main/pause.png" alt="">
+                        </button>
+                        <button type="button" class="slider-btn" id="slideNext" aria-label="다음 슬라이드">
+                            <img src="./images/main/next.png" alt="">
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 대여 조건 검색 -->
+                <form class="main-search" id="mainSearch">
+                    <label class="search-field search-place">
+                    <img src="./images/main/pin_ser.png">
+                        <input type="text" id="searchPlace" placeholder="대여장소 검색">
+                    </label>
+                    <label class="search-field">
+                       <img src="./images/main/day_ser.png" class="date-icon" data-picker="startPicker" alt="대여 날짜 달력 열기">
+                        <input type="text" id="searchStart" placeholder="대여 날짜" readonly>
+                        <input type="date" id="startPicker" class="date-picker" tabindex="-1" aria-hidden="true">
+                    </label>
+                    <label class="search-field">
+                       <img src="./images/main/return_day.png" class="date-icon" data-picker="endPicker" alt="반납 날짜 달력 열기">
+                        <input type="text" id="searchEnd" placeholder="반납 날짜" readonly>
+                        <input type="date" id="endPicker" class="date-picker" tabindex="-1" aria-hidden="true">
+                    </label>
+                    <button type="submit" class="search-submit">최저가 가격비교 시작</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- 제주 날씨: js/main.js가 채움 -->
+        <section class="weather">
+            <div class="inner weather-inner">
+                <div class="weather-today" id="weatherToday"></div>
+                <ul class="weather-week" id="weatherWeek"></ul>
+            </div>
+        </section>
+
+        <!-- 이용 고객 + 실시간 예약 -->
+        <section class="booking">
+            <div class="inner">
+                <div class="booking-box">
+                    <div class="booking-info">
+                        <h2>돌하루팡 이용 고객님</h2>
+                        <p class="booking-count"><span id="userCount" data-target="12328968">0</span>명</p>
+                        <p class="booking-desc">돌하루팡을 믿으세요.<br>국내최초·최대규모의 제주여행 가격비교사이트</p>
+                    </div>
+
+                    <div class="booking-roll" id="bookingRoll">
+                        <ul class="booking-list" id="bookingList"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 플로팅 버튼 -->
+    <div class="floating">
+        <button type="button" class="btn-top" id="btnTop" aria-label="맨 위로">
+            <svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg>
+        </button>
+        <a href="#" class="btn-talk">
+            <img class="talk" src="./images/common/상담톡.png">
+          
+
+            </span>
+        </a>
+    </div>
+
+    <!-- [S] footer -->
+    <footer class="footer">
+        <div class="inner">
+            <div class="footer-top">
+                <div>
+                    <ul class="footer-menu">
+                        <li><a href="javascript:void(0)">고객지원</a></li>
+                        <li><a href="javascript:void(0)">약관 및 정책</a></li>
+                    </ul>
+
+                    <ul class="footer-sns">
+                        <li><a href="https://www.facebook.com/dolharupang/" target="_blank" class="ico ico-facebook" aria-label="페이스북">페이스북</a></li>
+                        <li><a href="https://www.instagram.com/dolharupang/" target="_blank" class="ico ico-instagram" aria-label="인스타그램">인스타그램</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCVTTu19QIpyo58nvNyuDf8Q" target="_blank"class="ico ico-youtube" aria-label="유튜브">유튜브</a></li>
+                        <li><a href="https://blog.naver.com/khb1000je" target="_blank" class="ico ico-naver" aria-label="네이버">네이버</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-cs">
+                    <p class="cs-phone"><span>고객센터</span>064-702-1104</p>
+                    <p>09:00-18:00 (주말 17:00)</p>
+                    <p>연중무휴 (신정/명절 당일 제외)</p>
+                </div>
+            </div>
+
+            <div class="footer-company">
+                <div>
+                    <img src="images/common/footer_logo.png" alt="돌하루팡로고" class="footer-logo">
+                    <p>제주특별자치도 연삼로 38, 연빌딩 3층 | hello@dolharupang.com | 대표이사 : 문경보 | 관광사업등록번호 : 제 2025-22호 | 여행공제보험 : 제 13-26-0395호</p>
+                </div>
+
+                <div class="footer-qr">
+                    <div>
+                        <p>iOS</p>
+                        <i class="qr ios"></i>
+                    </div>
+                    
+                    <div>
+                        <p>Android</p>
+                        <i class="qr android"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    <p>돌하루팡 [사업자등록번호 : 616-29-29782 | 통신판매업 신고번호 : 2012-제주연동-0062호]</p>
+                    <p>주식회사 제주페이 [사업자등록번호 : 739-88-00561 | 통신판매업 신고번호 : 2019-제주연동-0085호]</p>
+                    <p class="footer-safe">돌하루팡은 제주공식 우수 관광사업체로 안전거래를 보장합니다.</p>
+                </div>
+                <img src="images/common/footer-certs.png" alt="인증 마크" class="footer-certs">
+            </div>
+        </div>
+    </footer>
+    <!-- // [E] footer -->
+     
+    <script src="js/main.js"></script>
 </body>
 </html>
