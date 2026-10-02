@@ -1,0 +1,239 @@
+/* 이용가이드 - 고객 만족 리뷰 */
+
+/* 상단 비주얼 (자주 묻는 질문과 같은 사진) */
+.review-hero {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2b3a48 url("../images/faq/faq-hero.jpg") center / cover no-repeat;
+}
+
+.review-hero h1 {
+    font-size: 56px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.review-body {
+    padding: 40px 0 120px;
+}
+
+/* 흰 카드: 왼쪽 조회 조건 + 오른쪽 리뷰 목록 */
+.review-card {
+    padding: 35px 35px 60px 35px;
+    background: #fff;
+    border-radius: 33px;
+}
+
+.review-wrap {
+    display: flex;
+    gap: 36px;
+    align-items: flex-start;
+}
+
+/* 왼쪽 조회 조건 */
+.review-filter {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    width: 340px;
+}
+
+.filter-box {
+    padding: 30px;
+    border: 1px solid var(--line-light);
+    border-radius: 30px;
+}
+
+.filter-company {
+    background: #F7FBFE;
+}
+
+.filter-box h2 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.filter-box > p {
+    margin: 10px 0 15px;
+    font-size: 14px;
+    color: var(--text);
+}
+
+.filter-box select {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+    padding: 0 30px 0 15px;
+    border: none;
+    border-radius: 15px;
+    background: #fff url("../images/common/arrow_down.png") right 14px center / 16px no-repeat;
+    font: inherit;
+    font-size: 16px;
+    color: var(--text);
+    appearance: none;
+    cursor: pointer;
+}
+
+.filter-box select:last-child {
+    margin-bottom: 0;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 12px;
+}
+
+.chips-line {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line-light);
+}
+
+.chip {
+    height: 40px;
+    padding: 0 18px;
+    border: 1px solid #dfe3e8;
+    border-radius: 20px;
+    background: #fff;
+    font-size: 15px;
+    color: var(--text);
+}
+
+.chip:hover {
+    border-color: var(--blue);
+}
+
+.chip.is-active {
+    border-color: var(--blue);
+    background: var(--blue);
+    color: #fff;
+    font-weight: 600;
+}
+
+/* 리뷰 목록 */
+.review-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.review-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px 20px;
+}
+
+.review-item {
+    min-width: 0;
+    padding: 20px 20px 24px;
+    background: #e8eef5;
+    border-radius: 30px;
+}
+
+.review-thumb {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    margin-bottom: 10px;
+    background: #fff;
+    border-radius: 24px 24px 0 0;
+    overflow: hidden;
+}
+
+.review-thumb img {
+    height: 90px;
+}
+
+.photo-badge {
+    display: none;
+    
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    background: rgba(10, 120, 255, 0.1);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue);
+}
+
+.review-stars {
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #ffb800;
+}
+
+.review-stars .off {
+    color: #ccd3dc;
+}
+
+.review-title {
+    margin: 4px 0 6px;
+    font-size: 17px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.review-text {
+    height: 3em;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    white-space: pre-line;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.review-meta {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--text-sub);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.review-empty {
+    padding: 100px 0;
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+}
+
+/* 페이지 번호 (자주 묻는 질문과 같은 모양) */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 80px;
+}
+
+.pagination button {
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 17px;
+    color: var(--text);
+}
+
+.pagination button.is-active {
+    background: var(--blue);
+    color: #fff;
+}
+
+.pagination button:disabled {
+    color: #ccc;
+    cursor: default;
+}

@@ -4,9 +4,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>돌하루팡 - 이용가이드(고객 만족 리뷰)</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/review.css">
 </head>
 
 <body>
-    
+    <!-- [S] header -->
+    <header class="header">
+        <div class="inner header-inner">
+            <a href="index.html" class="header-logo">
+                <img src="images/common/header_logo.png" alt="돌하루팡로고">
+            </a>
+
+            <nav class="gnb">
+                <a href="cars.html" class="gnb-item"><i class="ico ico-cars"></i>렌터카</a>
+                <a href="stays.html" class="gnb-item"><i class="ico ico-stays"></i>최저가 숙소</a>
+                <a href="event.html" class="gnb-item"><i class="ico ico-event"></i>혜택 및 이벤트</a>
+                <!-- 이용가이드 + SUB MENU -->
+                <div class="gnb-guide">
+                    <a href="faq.html" class="gnb-item is-active"><i class="ico ico-guide"></i>이용가이드</a>
+
+                    <!-- 서브메뉴 -->
+                    <div class="sub-menu">
+                        <a href="faq.html" class="sub-menu-item">
+                            <span class="sub-menu-text">
+                                <strong>자주 묻는 질문</strong>
+                            </span>
+                        </a>
+
+                        <a href="review.html" class="sub-menu-item">
+                            <span class="sub-menu-text">
+                                <strong>고객 만족 리뷰</strong>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <a href="javascript:void(0)" class="header-user"><i class="ico ico-user"></i></a>
+        </div>
+    </header>
+    <!-- // [E] header -->
+
+    <main>
+        <section class="review-hero">
+            <h1>고객 만족 리뷰</h1>
+        </section>
+
+        <section class="review-body">
+            <div class="inner">
+                <div class="review-card">
+                    <div class="review-wrap">
+                        <!-- 왼쪽 조회 조건 -->
+                        <aside class="review-filter">
+                            <div class="filter-box filter-company">
+                                <h2>업체별 리뷰 조회</h2>
+                                <p>전체 업체 리뷰를 조건별로 확인해보세요.</p>
+                                <select id="companySelect">
+                                    <option value="">업체 선택</option>
+                                </select>
+                                <select id="sortSelect">
+                                    <option value="recent">정렬 (최신순)</option>
+                                    <option value="high">별점 높은순</option>
+                                    <option value="low">별점 낮은순</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-box">
+                                <h2>키워드 리뷰 조회</h2>
+                                <p>키워드를 선택해서 확인해보세요.</p>
+                                <div class="chips" id="typeChips">
+                                    <button type="button" class="chip is-active" data-type="전체">전체</button>
+                                    <button type="button" class="chip" data-type="경차">경차</button>
+                                    <button type="button" class="chip" data-type="소형·준중형">소형·준중형</button>
+                                    <button type="button" class="chip" data-type="중형">중형</button>
+                                    <button type="button" class="chip" data-type="대형">대형</button>
+                                    <button type="button" class="chip" data-type="RV·SUV">RV·SUV</button>
+                                    <button type="button" class="chip" data-type="승합">승합</button>
+                                    <button type="button" class="chip" data-type="전기차">전기차</button>
+                                </div>
+
+                                <div class="chips chips-line" id="scoreChips">
+                                    <button type="button" class="chip is-active" data-score="all">별점 전체</button>
+                                    <button type="button" class="chip" data-score="4">4점 이상</button>
+                                    <!-- <button type="button" class="chip" data-score="photo">사진 리뷰만</button> -->
+                                    <button type="button" class="chip" id="resetBtn">초기화</button>
+                                </div>
+                            </div>
+                        </aside>
+
+                        <!-- 리뷰 목록: js/review.js가 review-data.js의 reviews 배열로 채움 -->
+                        <div class="review-content">
+                            <ul class="review-list" id="reviewList"></ul>
+                            <p class="review-empty" id="reviewEmpty" hidden>조건에 맞는 리뷰가 없어요.</p>
+                        </div>
+                    </div>
+
+                    <nav class="pagination" id="pagination"></nav>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- [S] footer -->
+    <footer class="footer">
+        <div class="inner">
+            <div class="footer-top">
+                <div>
+                    <ul class="footer-menu">
+                        <li><a href="javascript:void(0)">고객지원</a></li>
+                        <li><a href="javascript:void(0)">약관 및 정책</a></li>
+                    </ul>
+
+                    <ul class="footer-sns">
+                        <li><a href="https://www.facebook.com/dolharupang/" target="_blank" class="ico ico-facebook" aria-label="페이스북">페이스북</a></li>
+                        <li><a href="https://www.instagram.com/dolharupang/" target="_blank" class="ico ico-instagram" aria-label="인스타그램">인스타그램</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCVTTu19QIpyo58nvNyuDf8Q" target="_blank"class="ico ico-youtube" aria-label="유튜브">유튜브</a></li>
+                        <li><a href="https://blog.naver.com/khb1000je" target="_blank" class="ico ico-naver" aria-label="네이버">네이버</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-cs">
+                    <p class="cs-phone"><span>고객센터</span>064-702-1104</p>
+                    <p>09:00-18:00 (주말 17:00)</p>
+                    <p>연중무휴 (신정/명절 당일 제외)</p>
+                </div>
+            </div>
+
+            <div class="footer-company">
+                <div>
+                    <img src="images/common/footer_logo.png" alt="돌하루팡로고" class="footer-logo">
+                    <p>제주특별자치도 연삼로 38, 연빌딩 3층 | hello@dolharupang.com | 대표이사 : 문경보 | 관광사업등록번호 : 제 2025-22호 | 여행공제보험 : 제 13-26-0395호</p>
+                </div>
+
+                <div class="footer-qr">
+                    <div>
+                        <p>iOS</p>
+                        <i class="qr ios"></i>
+                    </div>
+                    
+                    <div>
+                        <p>Android</p>
+                        <i class="qr android"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    <p>돌하루팡 [사업자등록번호 : 616-29-29782 | 통신판매업 신고번호 : 2012-제주연동-0062호]</p>
+                    <p>주식회사 제주페이 [사업자등록번호 : 739-88-00561 | 통신판매업 신고번호 : 2019-제주연동-0085호]</p>
+                    <p class="footer-safe">돌하루팡은 제주공식 우수 관광사업체로 안전거래를 보장합니다.</p>
+                </div>
+                <img src="images/common/footer-certs.png" alt="인증 마크" class="footer-certs">
+            </div>
+        </div>
+    </footer>
+    <!-- // [E] footer -->
+
+    <script src="js/review-data.js"></script>
+    <script src="js/review.js"></script>
 </body>
 </html>

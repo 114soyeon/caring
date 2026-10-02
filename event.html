@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>돌하루팡 - 혜택 및 이벤트</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/event.css">
+</head>
+
+<body>
+    <!-- [S] header -->
+    <header class="header">
+        <div class="inner header-inner">
+            <a href="index.html" class="header-logo">
+                <img src="images/common/header_logo.png" alt="돌하루팡로고">
+            </a>
+
+            <nav class="gnb">
+                <a href="cars.html" class="gnb-item"><i class="ico ico-cars"></i>렌터카</a>
+                <a href="stays.html" class="gnb-item"><i class="ico ico-stays"></i>최저가 숙소</a>
+                <a href="event.html" class="gnb-item is-active"><i class="ico ico-event"></i>혜택 및 이벤트</a>
+                <!-- 이용가이드 + SUB MENU -->
+                <div class="gnb-guide">
+                    <a href="faq.html" class="gnb-item"><i class="ico ico-guide"></i>이용가이드</a>
+
+                    <!-- 서브메뉴 -->
+                    <div class="sub-menu">
+                        <a href="faq.html" class="sub-menu-item">
+                            <span class="sub-menu-text">
+                                <strong>자주 묻는 질문</strong>
+                            </span>
+                        </a>
+
+                        <a href="review.html" class="sub-menu-item">
+                            <span class="sub-menu-text">
+                                <strong>고객 만족 리뷰</strong>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <a href="javascript:void(0)" class="header-user"><i class="ico ico-user"></i></a>
+        </div>
+    </header>
+    <!-- // [E] header -->
+
+    <main>
+        <section class="event-hero">
+            <h1>혜택 및 이벤트</h1>
+        </section>
+
+        <section class="event-body">
+            <div class="inner">
+                <div class="event-wrap">
+                    <div class="event-content">
+                        <ul>
+                            <li class="event-item">
+                                <a href="javascript:void(0)">
+                                    <div class="event-thumb"><img src="./images/event/event01.png"></div>
+                                    <h3 class="event-title">누구나 참여가능 앱스토어 리뷰 이벤트</h3>
+                                </a>
+                            </li>
+
+                            <li class="event-item">
+                                <a href="javascript:void(0)">
+                                    <div class="event-thumb"><img src="./images/event/event02.png"></div>
+                                    <h3 class="event-title">돌하루팡 구글리뷰 작성하면? 100% 당첨!</h3>
+                                </a>
+                            </li>
+
+                            <li class="event-item">
+                                <a href="javascript:void(0)">
+                                    <div class="event-thumb"><img src="./images/event/event03.png"></div>
+                                    <h3 class="event-title">결제조건 없이 바로 할인 가능 3,000원 쿠폰 증정</h3>
+                                </a>
+                            </li>
+
+                            <li class="event-item">
+                                <a href="javascript:void(0)">
+                                    <div class="event-thumb"><img src="./images/event/event04.png"></div>
+                                    <h3 class="event-title">올가을, 예약만 해도 혜택이 주렁주렁!</h3>
+                                </a>
+                            </li>
+
+                            <li class="event-item">
+                                <a href="javascript:void(0)">
+                                    <div class="event-thumb"><img src="./images/event/event05.png"></div>
+                                    <h3 class="event-title">추석연휴 가족 맟춤 숙소 9월 단독특가</h3>
+                                </a>
+                            </li>
+
+                            <li class="event-item">
+                                <a href="javascript:void(0)">
+                                    <div class="event-thumb"><img src="./images/event/event06.png"></div>
+                                    <h3 class="event-title">벤치테이블 제조음료 주문 시 수제식혜 1잔 무료</h3>
+                                </a>
+                            </li>
+
+                            <li class="event-item">
+                                <a href="javascript:void(0)">
+                                    <div class="event-thumb"><img src="./images/event/event07.png"></div>
+                                    <h3 class="event-title">제주고씨네고기연구소 식사메뉴 1개 무료</h3>
+                                </a>
+                            </li>
+
+                            <li class="event-item">
+                                <a href="javascript:void(0)">
+                                    <div class="event-thumb"><img src="./images/event/event08.png"></div>
+                                    <h3 class="event-title">비케이브 제조음료 20% 할인 혜택!</h3>
+                                </a>
+                            </li>
+
+                            <li class="event-item">
+                                <a href="javascript:void(0)">
+                                    <div class="event-thumb"><img src="./images/event/event09.png"></div>
+                                    <h3 class="event-title">토은 아메리카노 또는 TEA 1+1 제공혜택</h3>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- 등록된 이벤트가 없는 경우 -->
+                        <p class="event-empty" id="eventEmpty" hidden>등록된 이벤트가 없어요.</p>
+                    </div>
+                </div>
+
+                <nav class="pagination" id="pagination">
+                    <button type="button" data-page="0" disabled="" aria-label="이전 페이지">&lt;</button>
+                    <button type="button" data-page="1" class="is-active">1</button>
+                    <button type="button" data-page="2" disabled="" aria-label="다음 페이지">&gt;</button>
+                </nav>
+            </div>
+        </section>
+    </main>
+
+    <!-- [S] footer -->
+    <footer class="footer">
+        <div class="inner">
+            <div class="footer-top">
+                <div>
+                    <ul class="footer-menu">
+                        <li><a href="javascript:void(0)">고객지원</a></li>
+                        <li><a href="javascript:void(0)">약관 및 정책</a></li>
+                    </ul>
+
+                    <ul class="footer-sns">
+                        <li><a href="https://www.facebook.com/dolharupang/" target="_blank" class="ico ico-facebook" aria-label="페이스북">페이스북</a></li>
+                        <li><a href="https://www.instagram.com/dolharupang/" target="_blank" class="ico ico-instagram" aria-label="인스타그램">인스타그램</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCVTTu19QIpyo58nvNyuDf8Q" target="_blank"class="ico ico-youtube" aria-label="유튜브">유튜브</a></li>
+                        <li><a href="https://blog.naver.com/khb1000je" target="_blank" class="ico ico-naver" aria-label="네이버">네이버</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-cs">
+                    <p class="cs-phone"><span>고객센터</span>064-702-1104</p>
+                    <p>09:00-18:00 (주말 17:00)</p>
+                    <p>연중무휴 (신정/명절 당일 제외)</p>
+                </div>
+            </div>
+
+            <div class="footer-company">
+                <div>
+                    <img src="images/common/footer_logo.png" alt="돌하루팡로고" class="footer-logo">
+                    <p>제주특별자치도 연삼로 38, 연빌딩 3층 | hello@dolharupang.com | 대표이사 : 문경보 | 관광사업등록번호 : 제 2025-22호 | 여행공제보험 : 제 13-26-0395호</p>
+                </div>
+
+                <div class="footer-qr">
+                    <div>
+                        <p>iOS</p>
+                        <i class="qr ios"></i>
+                    </div>
+                    
+                    <div>
+                        <p>Android</p>
+                        <i class="qr android"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    <p>돌하루팡 [사업자등록번호 : 616-29-29782 | 통신판매업 신고번호 : 2012-제주연동-0062호]</p>
+                    <p>주식회사 제주페이 [사업자등록번호 : 739-88-00561 | 통신판매업 신고번호 : 2019-제주연동-0085호]</p>
+                    <p class="footer-safe">돌하루팡은 제주공식 우수 관광사업체로 안전거래를 보장합니다.</p>
+                </div>
+                <img src="images/common/footer-certs.png" alt="인증 마크" class="footer-certs">
+            </div>
+        </div>
+    </footer>
+    <!-- // [E] footer -->
+
+    <script src="js/event.js"></script>
+</body>
+</html>
