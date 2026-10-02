@@ -116,3 +116,36 @@ document.querySelector("#rentSearch").addEventListener("submit", (e) => {
 
 updatePrice();
 renderCars();
+
+// 상단 히어로 슬라이더 (자동 전환)
+(function () {
+    const slides = document.querySelectorAll('.cars-hero .hero-slide');
+    if (slides.length < 2) return;
+
+    let current = 0;
+
+    setInterval(() => {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+    }, 4000);
+})();
+
+    const dots = dotsBox.querySelectorAll('span');
+
+    function show(n) {
+        current = (n + slides.length) % slides.length;
+        slides.forEach((s, i) => s.classList.toggle('active', i === current));
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function restart() {
+        clearInterval(timer);
+        timer = setInterval(() => show(current + 1), 4000);  // 4초마다 넘어감
+    }
+
+    document.querySelector('.cars-hero .hero-btn.prev').addEventListener('click', () => { show(current - 1); restart(); });
+    document.querySelector('.cars-hero .hero-btn.next').addEventListener('click', () => { show(current + 1); restart(); });
+
+    show(0);
+    restart();
