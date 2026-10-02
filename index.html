@@ -10,23 +10,42 @@
 </head>
 
 <body>
-    <!-- 공통 헤더 -->
+    <!-- [S] header -->
     <header class="header">
         <div class="inner header-inner">
             <a href="index.html" class="header-logo">
-                <img src="images/common/header_logo.png" alt="돌하루팡 Since 2012">
+                <img src="images/common/header_logo.png" alt="돌하루팡로고">
             </a>
 
             <nav class="gnb">
-                <a href="cars.html" class="gnb-item is-active"><span class="ico ico-cars"></span>렌터카</a>
-                <a href="stays.html" class="gnb-item"><span class="ico ico-stays"></span>최저가 숙소</a>
-                <a href="review.html" class="gnb-item"><span class="ico ico-event"></span>혜택 및 이벤트</a>
-                <a href="faq.html" class="gnb-item"><span class="ico ico-guide"></span>이용가이드</a>
+                <a href="cars.html" class="gnb-item"><i class="ico ico-cars"></i>렌터카</a>
+                <a href="stays.html" class="gnb-item"><i class="ico ico-stays"></i>최저가 숙소</a>
+                <a href="event.html" class="gnb-item"><i class="ico ico-event"></i>혜택 및 이벤트</a>
+                <!-- 이용가이드 + SUB MENU -->
+                <div class="gnb-guide">
+                    <a href="faq.html" class="gnb-item"><i class="ico ico-guide"></i>이용가이드</a>
+
+                    <!-- 서브메뉴 -->
+                    <div class="sub-menu">
+                        <a href="faq.html" class="sub-menu-item">
+                            <span class="sub-menu-text">
+                                <strong>자주 묻는 질문</strong>
+                            </span>
+                        </a>
+
+                        <a href="review.html" class="sub-menu-item">
+                            <span class="sub-menu-text">
+                                <strong>고객 만족 리뷰</strong>
+                            </span>
+                        </a>
+                    </div>
+                </div>
             </nav>
 
-            <a href="#" class="header-user">OOO 님<span class="ico ico-user"></span></a>
+            <a href="javascript:void(0)" class="header-user"><i class="ico ico-user"></i></a>
         </div>
     </header>
+    <!-- // [E] header -->
 
     <main>
         <!-- 메인 비주얼 + 검색 -->
@@ -117,20 +136,21 @@
         </a>
     </div>
 
-    <!-- 공통 푸터 -->
+    <!-- [S] footer -->
     <footer class="footer">
         <div class="inner">
             <div class="footer-top">
                 <div>
                     <ul class="footer-menu">
-                        <li><a href="#">고객지원</a></li>
-                        <li><a href="#">약관 및 정책</a></li>
+                        <li><a href="javascript:void(0)">고객지원</a></li>
+                        <li><a href="javascript:void(0)">약관 및 정책</a></li>
                     </ul>
+
                     <ul class="footer-sns">
-                        <li><a href="#" class="ico ico-facebook">페이스북</a></li>
-                        <li><a href="#" class="ico ico-instagram">인스타그램</a></li>
-                        <li><a href="#" class="ico ico-youtube">유튜브</a></li>
-                        <li><a href="#" class="ico ico-naver">네이버</a></li>
+                        <li><a href="https://www.facebook.com/dolharupang/" target="_blank" class="ico ico-facebook" aria-label="페이스북">페이스북</a></li>
+                        <li><a href="https://www.instagram.com/dolharupang/" target="_blank" class="ico ico-instagram" aria-label="인스타그램">인스타그램</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCVTTu19QIpyo58nvNyuDf8Q" target="_blank"class="ico ico-youtube" aria-label="유튜브">유튜브</a></li>
+                        <li><a href="https://blog.naver.com/khb1000je" target="_blank" class="ico ico-naver" aria-label="네이버">네이버</a></li>
                     </ul>
                 </div>
 
@@ -143,17 +163,19 @@
 
             <div class="footer-company">
                 <div>
-                    <img src="images/common/footer_logo.png" alt="돌하루팡" class="footer-logo">
+                    <img src="images/common/footer_logo.png" alt="돌하루팡로고" class="footer-logo">
                     <p>제주특별자치도 연삼로 38, 연빌딩 3층 | hello@dolharupang.com | 대표이사 : 문경보 | 관광사업등록번호 : 제 2025-22호 | 여행공제보험 : 제 13-26-0395호</p>
                 </div>
+
                 <div class="footer-qr">
                     <div>
                         <p>iOS</p>
-                        <span class="qr ios"></span>
+                        <i class="qr ios"></i>
                     </div>
+                    
                     <div>
                         <p>Android</p>
-                        <span class="qr android"></span>
+                        <i class="qr android"></i>
                     </div>
                 </div>
             </div>
@@ -168,7 +190,8 @@
             </div>
         </div>
     </footer>
-
+    <!-- // [E] footer -->
+     
     <script src="js/main.js"></script>
 </body>
 </html>
