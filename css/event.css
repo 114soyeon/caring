@@ -1,0 +1,100 @@
+/* 이용가이드 - 고객 만족 리뷰 */
+
+/* 상단 비주얼 */
+.event-hero {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2b3a48 url("../images/event/event-hero.png") center / cover no-repeat;
+}
+
+.event-hero h1 {
+    font-size: 56px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.event-body {
+    padding: 40px 0 120px;
+}
+
+.event-card {
+    padding: 35px 35px 60px 35px;
+    background: #fff;
+    border-radius: 33px;
+}
+
+.event-wrap {
+    display: flex;
+    gap: 36px;
+    align-items: flex-start;
+}
+
+.event-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.event-content ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.event-item {
+    width: calc(33% - 10px);
+    min-width: 0;
+    padding: 20px 20px 30px 20px;
+    border-radius: 33px;
+    background: #fff;
+}
+
+.event-thumb {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 189px;
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 33px 33px 0 0;
+    overflow: hidden;
+}
+
+.event-title {
+    margin: 4px 0 6px;
+    font-size: 17px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 페이지 번호 (자주 묻는 질문과 같은 모양) */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 80px;
+}
+
+.pagination button {
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 17px;
+    color: var(--text);
+}
+
+.pagination button.is-active {
+    background: var(--blue);
+    color: #fff;
+}
+
+.pagination button:disabled {
+    color: #ccc;
+    cursor: default;
+}
