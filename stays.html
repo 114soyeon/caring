@@ -42,7 +42,49 @@
 
     <main>
       <!-- ===== Hero ===== -->
+      <!-- 지원님 코드를 일단 여기에 가져다 붙여요 -> 화면에서 어떻게 나오는지를 확인
+        내가 변경하고자하는 부분들을 찾아요 UI 적으로 깨지는 부분이 있다면 CSS 수정
+        기능적으로 오류가 있다면 JS 수정,  
+      -->
       <section class="hero">
+        <div class="hero-slids">
+                           
+          <div
+            class="hero-slide active"
+            style="
+              background-image: url(&quot;images/stays/슬라이드0.jpg&quot;);
+            "
+          ></div>
+                           
+          <div
+            class="hero-slide"
+            style="
+              background-image: url(&quot;images/stays/슬라이드1.jpg&quot;);
+            "
+          ></div>
+                           
+          <div
+            class="hero-slide"
+            style="
+              background-image: url(&quot;images/stays/슬라이드2.jpg&quot;);
+            "
+          ></div>
+                           
+          <div
+            class="hero-slide"
+            style="
+              background-image: url(&quot;images/stays/슬라이드3.jpg&quot;);
+            "
+          ></div>
+                           
+          <div
+            class="hero-slide"
+            style="
+              background-image: url(&quot;images/stays/슬라이드4.jpg&quot;);
+            "
+          ></div>
+        </div>
+        <div class="hero__bg"></div>
         <h1 class="hero__title">최저가 숙소</h1>
       </section>
 
@@ -85,8 +127,8 @@
               onblur="if (!this.value) this.type = 'text';"
             />
           </label>
-          <button type="submit" class="btn-primary">
-            최저가 가격비교 시작
+          <button type="submit" class="btn-search">
+            <img src="images/stays/검색.png" alt="최저가 가격비교 시작" />
           </button>
         </form>
       </section>

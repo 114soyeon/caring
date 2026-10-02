@@ -6,8 +6,21 @@ const PER_PAGE = 4;
 const MAX_PAGE_BUTTONS = 10;
 
 // ----- 샘플 숙소 데이터 (실서비스에서는 API 응답으로 교체) -----
+(function () {
+  const slides = document.querySelectorAll(".hero .hero-slide");
+  if (slides.length < 2) return;
+
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove("active");
+    current = (current + 1) % slides.length;
+    slides[current].classList.add("active");
+  }, 4000);
+})();
+
 const NAMES = [
-  ["서귀포시 펜션 #석목집 #모던한옥 #", "서귀포시"],
+  ["서귀포시 펜션 #석목집 #모던한옥 #제주", "서귀포시"],
   ["[오픈특가] 제주 독채 펜션 #통창유리 #", "제주시"],
   ["애월읍 펜션", "애월"],
   ["제주 아치트 #공항근처 #", "제주시"],
@@ -19,13 +32,25 @@ const NAMES = [
   ["한림 돌담 민박", "애월"],
 ];
 const AREAS = {
-  제주시:   [33.4996, 126.5312],
-  서귀포시: [33.2541, 126.5600],
-  애월:     [33.4627, 126.3310],
-  중문:     [33.2500, 126.4120],
-  성산:     [33.4580, 126.9270],
+  제주시: [33.4996, 126.5312],
+  서귀포시: [33.2541, 126.56],
+  애월: [33.4627, 126.331],
+  중문: [33.25, 126.412],
+  성산: [33.458, 126.927],
 };
-const ROOM_TYPES = ["침실1개 · 침대1개 · 욕실1개", "침실2개 · 침대2개 · 욕실1개", "침실3개 · 침대3개 · 욕실2개"];
+const ROOM_TYPES = [
+  "침실1개 · 침대1개 · 욕실1개",
+  "침실2개 · 침대2개 · 욕실1개",
+  "침실3개 · 침대3개 · 욕실2개",
+];
+
+// images/stays 폴더의 숙소 사진 (숙소 40개가 순서대로 돌아가며 사용)
+const STAY_IMAGES = [
+  "images/stays/숙소.png",
+  "images/stays/숙소 (1).png",
+  "images/stays/숙소 (2).png",
+  "images/stays/숙소 (3).png",
+];
 
 const accommodations = Array.from({ length: 40 }, (_, i) => {
   const [name, area] = NAMES[i % NAMES.length];
@@ -34,12 +59,14 @@ const accommodations = Array.from({ length: 40 }, (_, i) => {
     id: i + 1,
     name,
     area,
-    lat: lat + (Math.sin(i * 7.3) * 0.04),
-    lng: lng + (Math.cos(i * 3.1) * 0.06),
+    lat: lat + Math.sin(i * 7.3) * 0.04,
+    lng: lng + Math.cos(i * 3.1) * 0.06,
     rooms: ROOM_TYPES[i % ROOM_TYPES.length],
     guests: `최대 ${2 + (i % 5)}인`,
     price: 180000 + ((i * 97331) % 1500000),
-    image: `https://picsum.photos/seed/jeju-stay-${i}/600/500`,
+    image: STAY_IMAGES[i % STAY_IMAGES.length],
+
+    /*`https://picsum.photos/seed/jeju-stay-${i}/600/500`,*/
   };
 });
 
@@ -76,12 +103,16 @@ const map = L.map("map", {
 L.tileLayer("https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png", {
   subdomains: "abc",
   maxZoom: 20,
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://www.openstreetmap.fr">OpenStreetMap France</a>',
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://www.openstreetmap.fr">OpenStreetMap France</a>',
 }).addTo(map);
 
 // 지역 라벨
 L.marker([33.39, 126.55], {
-  icon: L.divIcon({ html: '<span class="region-marker">📍 제주</span>', iconSize: null }),
+  icon: L.divIcon({
+    html: '<span class="region-marker">📍 제주</span>',
+    iconSize: null,
+  }),
   interactive: false,
 }).addTo(map);
 
@@ -103,18 +134,25 @@ function renderMarkers(items) {
     markers.set(item.id, marker);
   });
   if (items.length) {
-    map.fitBounds(L.latLngBounds(items.map((i) => [i.lat, i.lng])), { padding: [60, 60], maxZoom: 12 });
+    map.fitBounds(L.latLngBounds(items.map((i) => [i.lat, i.lng])), {
+      padding: [60, 60],
+      maxZoom: 12,
+    });
   }
 }
 
 function setActive(id) {
   state.activeId = id;
-  document.querySelectorAll(".price-marker").forEach((el) =>
-    el.classList.toggle("is-active", Number(el.dataset.id) === id)
-  );
-  document.querySelectorAll(".card").forEach((el) =>
-    el.classList.toggle("is-active", Number(el.dataset.id) === id)
-  );
+  document
+    .querySelectorAll(".price-marker")
+    .forEach((el) =>
+      el.classList.toggle("is-active", Number(el.dataset.id) === id),
+    );
+  document
+    .querySelectorAll(".card")
+    .forEach((el) =>
+      el.classList.toggle("is-active", Number(el.dataset.id) === id),
+    );
   const marker = markers.get(id);
   if (marker) marker.setZIndexOffset(1000);
   markers.forEach((m, key) => key !== id && m.setZIndexOffset(0));
@@ -128,7 +166,9 @@ function focusItem(id, scrollToCard = false) {
   if (page !== state.page) goToPage(page, false);
   setActive(id);
   if (scrollToCard) {
-    document.querySelector(`.card[data-id="${id}"]`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+    document
+      .querySelector(`.card[data-id="${id}"]`)
+      ?.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 }
 
@@ -151,16 +191,20 @@ function renderList() {
         <p class="card__meta">${item.rooms}</p>
         <p class="card__meta">${item.area} · ${item.guests}</p>
         <p class="card__price">${krw(item.price)}</p>
-      </li>`
+      </li>`,
     )
     .join("");
 }
 
 function renderPagination() {
   const total = Math.ceil(state.items.length / PER_PAGE);
-  if (total <= 1) { $pagination.innerHTML = ""; return; }
+  if (total <= 1) {
+    $pagination.innerHTML = "";
+    return;
+  }
 
-  const groupStart = Math.floor((state.page - 1) / MAX_PAGE_BUTTONS) * MAX_PAGE_BUTTONS + 1;
+  const groupStart =
+    Math.floor((state.page - 1) / MAX_PAGE_BUTTONS) * MAX_PAGE_BUTTONS + 1;
   const groupEnd = Math.min(groupStart + MAX_PAGE_BUTTONS - 1, total);
 
   let html = `<button data-page="${state.page - 1}" ${state.page === 1 ? "disabled" : ""} aria-label="이전">‹</button>`;
@@ -177,7 +221,10 @@ function goToPage(page, scroll = true) {
   renderList();
   renderPagination();
   setActive(state.activeId);
-  if (scroll) document.querySelector(".list-section").scrollIntoView({ behavior: "smooth" });
+  if (scroll)
+    document
+      .querySelector(".list-section")
+      .scrollIntoView({ behavior: "smooth" });
 }
 
 $pagination.addEventListener("click", (e) => {
@@ -216,7 +263,9 @@ $form.addEventListener("submit", (e) => {
 
   // 키워드 필터 후 가격 낮은 순 정렬
   state.items = accommodations
-    .filter((i) => !keyword || i.name.includes(keyword) || i.area.includes(keyword))
+    .filter(
+      (i) => !keyword || i.name.includes(keyword) || i.area.includes(keyword),
+    )
     .sort((a, b) => a.price - b.price);
   state.activeId = null;
 
