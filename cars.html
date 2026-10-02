@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <!-- [S] header -->
+     <!-- [S] header -->
     <header class="header">
         <div class="inner header-inner">
             <a href="index.html" class="header-logo">
@@ -20,11 +20,29 @@
             <nav class="gnb">
                 <a href="cars.html" class="gnb-item is-active"><i class="ico ico-cars"></i>렌터카</a>
                 <a href="stays.html" class="gnb-item"><i class="ico ico-stays"></i>최저가 숙소</a>
-                <a href="javascript:void(0).html" class="gnb-item"><i class="ico ico-event"></i>혜택 및 이벤트</a>
-                <a href="faq.html" class="gnb-item"><i class="ico ico-guide"></i>이용가이드</a>
+                <a href="event.html" class="gnb-item"><i class="ico ico-event"></i>혜택 및 이벤트</a>
+                <!-- 이용가이드 + SUB MENU -->
+                <div class="gnb-guide">
+                    <a href="faq.html" class="gnb-item"><i class="ico ico-guide"></i>이용가이드</a>
+
+                    <!-- 서브메뉴 -->
+                    <div class="sub-menu">
+                        <a href="faq.html" class="sub-menu-item">
+                            <span class="sub-menu-text">
+                                <strong>자주 묻는 질문</strong>
+                            </span>
+                        </a>
+
+                        <a href="review.html" class="sub-menu-item">
+                            <span class="sub-menu-text">
+                                <strong>고객 만족 리뷰</strong>
+                            </span>
+                        </a>
+                    </div>
+                </div>
             </nav>
 
-            <a href="#" class="header-user">OOO 님<i class="ico ico-user"></i></a><!-- 로그인 시 이름 노출 -->
+            <a href="javascript:void(0)" class="header-user"><i class="ico ico-user"></i></a>
         </div>
     </header>
     <!-- // [E] header -->
@@ -171,7 +189,7 @@
 
             <div class="footer-company">
                 <div>
-                    <img src="images/common/logo-footer.png" alt="돌하루팡 로고" class="footer-logo">
+                    <img src="images/common/footer_logo.png" alt="돌하루팡로고" class="footer-logo">
                     <p>제주특별자치도 연삼로 38, 연빌딩 3층 | hello@dolharupang.com | 대표이사 : 문경보 | 관광사업등록번호 : 제 2025-22호 | 여행공제보험 : 제 13-26-0395호</p>
                 </div>
 
