@@ -35,31 +35,24 @@
                 <!-- 슬라이더 -->
                 <div class="slider" id="slider">
                     <ul class="slide-list" id="slideList">
-                        <li class="slide slide-1 is-active">
-                            <p class="slide-sub">제주 여행의 시작</p>
-                            <h2 class="slide-title">슬라이더</h2>
-                        </li>
-                        <li class="slide slide-2">
-                            <p class="slide-sub">가을 제주 특가</p>
-                            <h2 class="slide-title">렌터카 최대 70% 할인</h2>
-                        </li>
-                        <li class="slide slide-3">
-                            <p class="slide-sub">국내 최초·최대 규모</p>
-                            <h2 class="slide-title">제주 최저가 가격비교</h2>
-                        </li>
+                        <li class="slide slide-1 is-active"></li>
+                        <li class="slide slide-2"></li>
+                        <li class="slide slide-3"></li>
+                        <li class="slide slide-4"></li>
+                        <li class="slide slide-5"></li>
                     </ul>
                 </div>
 
                 <div class="slider-ctrl">
-                    <a href="#" class="slider-all">전체보기</a>
                     <div class="slider-btns">
-                        <span class="slider-count"><b id="slideCurrent">1</b> / <span id="slideTotal">3</span></span>
+                        <button type="button" class="slider-btn" id="slidePrev" aria-label="이전 슬라이드">
+                            <img src="./images/main/prev.png" alt="">
+                        </button>
                         <button type="button" class="slider-btn" id="slidePause" aria-label="일시정지">
-                            <svg class="ico-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></svg>
-                            <svg class="ico-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg>
+                            <img src="./images/main/pause.png" alt="">
                         </button>
                         <button type="button" class="slider-btn" id="slideNext" aria-label="다음 슬라이드">
-                            <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+                            <img src="./images/main/next.png" alt="">
                         </button>
                     </div>
                 </div>
@@ -67,16 +60,18 @@
                 <!-- 대여 조건 검색 -->
                 <form class="main-search" id="mainSearch">
                     <label class="search-field search-place">
-                        <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+                    <img src="./images/main/pin_ser.png">
                         <input type="text" id="searchPlace" placeholder="대여장소 검색">
                     </label>
                     <label class="search-field">
-                        <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
-                        <input type="text" id="searchStart" placeholder="대여 날짜" onfocus="this.type='date'">
+                       <img src="./images/main/day_ser.png" class="date-icon" data-picker="startPicker" alt="대여 날짜 달력 열기">
+                        <input type="text" id="searchStart" placeholder="대여 날짜" readonly>
+                        <input type="date" id="startPicker" class="date-picker" tabindex="-1" aria-hidden="true">
                     </label>
                     <label class="search-field">
-                        <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
-                        <input type="text" id="searchEnd" placeholder="반납 날짜" onfocus="this.type='date'">
+                       <img src="./images/main/return_day.png" class="date-icon" data-picker="endPicker" alt="반납 날짜 달력 열기">
+                        <input type="text" id="searchEnd" placeholder="반납 날짜" readonly>
+                        <input type="date" id="endPicker" class="date-picker" tabindex="-1" aria-hidden="true">
                     </label>
                     <button type="submit" class="search-submit">최저가 가격비교 시작</button>
                 </form>
@@ -115,10 +110,9 @@
             <svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg>
         </button>
         <a href="#" class="btn-talk">
-            <span class="talk-face"></span>
-            <span class="talk-label">
-                <svg viewBox="0 0 24 24"><path d="M12 4c5 0 9 3.1 9 7s-4 7-9 7c-.9 0-1.8-.1-2.6-.3L5 20l1.2-3.6C4.2 15.1 3 13.2 3 11c0-3.9 4-7 9-7z" fill="currentColor" stroke="none"/></svg>
-                상담톡
+            <img class="talk" src="./images/common/상담톡.png">
+          
+
             </span>
         </a>
     </div>
