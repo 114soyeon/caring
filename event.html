@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>돌하루팡 - 이용가이드(고객 만족 리뷰)</title>
+    <title>돌하루팡 - 혜택 및 이벤트</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/review.css">
+    <link rel="stylesheet" href="css/event.css">
 </head>
 
 <body>
@@ -48,61 +48,89 @@
     <!-- // [E] header -->
 
     <main>
-        <section class="review-hero">
-            <h1>고객 만족 리뷰</h1>
+        <section class="event-hero">
+            <h1>혜택 및 이벤트</h1>
         </section>
 
-        <section class="review-body">
+        <section class="event-body">
             <div class="inner">
-                <div class="review-card">
-                    <div class="review-wrap">
-                        <!-- 왼쪽 조회 조건 -->
-                        <aside class="review-filter">
-                            <div class="filter-box filter-company">
-                                <h2>업체별 리뷰 조회</h2>
-                                <p>전체 업체 리뷰를 조건별로 확인해보세요.</p>
-                                <select id="companySelect">
-                                    <option value="">업체 선택</option>
-                                </select>
-                                <select id="sortSelect">
-                                    <option value="recent">정렬 (최신순)</option>
-                                    <option value="high">별점 높은순</option>
-                                    <option value="low">별점 낮은순</option>
-                                </select>
-                            </div>
+                <div class="event-wrap">
+                    <div class="event-content">
+                        <ul>
+                            <li class="event-item">
+                                <a href="javascript:void(0)">
+                                    <div class="event-thumb"><img src="./images/event/event01.png"></div>
+                                    <h3 class="event-title">누구나 참여가능 앱스토어 리뷰 이벤트</h3>
+                                </a>
+                            </li>
 
-                            <div class="filter-box">
-                                <h2>키워드 리뷰 조회</h2>
-                                <p>키워드를 선택해서 확인해보세요.</p>
-                                <div class="chips" id="typeChips">
-                                    <button type="button" class="chip is-active" data-type="전체">전체</button>
-                                    <button type="button" class="chip" data-type="경차">경차</button>
-                                    <button type="button" class="chip" data-type="소형·준중형">소형·준중형</button>
-                                    <button type="button" class="chip" data-type="중형">중형</button>
-                                    <button type="button" class="chip" data-type="대형">대형</button>
-                                    <button type="button" class="chip" data-type="RV·SUV">RV·SUV</button>
-                                    <button type="button" class="chip" data-type="승합">승합</button>
-                                    <button type="button" class="chip" data-type="전기차">전기차</button>
-                                </div>
+                            <li class="event-item">
+                                <a href="javascript:void(0)">
+                                    <div class="event-thumb"><img src="./images/event/event02.png"></div>
+                                    <h3 class="event-title">돌하루팡 구글리뷰 작성하면? 100% 당첨!</h3>
+                                </a>
+                            </li>
 
-                                <div class="chips chips-line" id="scoreChips">
-                                    <button type="button" class="chip is-active" data-score="all">별점 전체</button>
-                                    <button type="button" class="chip" data-score="4">4점 이상</button>
-                                    <!-- <button type="button" class="chip" data-score="photo">사진 리뷰만</button> -->
-                                    <button type="button" class="chip" id="resetBtn">초기화</button>
-                                </div>
-                            </div>
-                        </aside>
+                            <li class="event-item">
+                                <a href="javascript:void(0)">
+                                    <div class="event-thumb"><img src="./images/event/event03.png"></div>
+                                    <h3 class="event-title">결제조건 없이 바로 할인 가능 3,000원 쿠폰 증정</h3>
+                                </a>
+                            </li>
 
-                        <!-- 리뷰 목록: js/review.js가 review-data.js의 reviews 배열로 채움 -->
-                        <div class="review-content">
-                            <ul class="review-list" id="reviewList"></ul>
-                            <p class="review-empty" id="reviewEmpty" hidden>조건에 맞는 리뷰가 없어요.</p>
-                        </div>
+                            <li class="event-item">
+                                <a href="javascript:void(0)">
+                                    <div class="event-thumb"><img src="./images/event/event04.png"></div>
+                                    <h3 class="event-title">올가을, 예약만 해도 혜택이 주렁주렁!</h3>
+                                </a>
+                            </li>
+
+                            <li class="event-item">
+                                <a href="javascript:void(0)">
+                                    <div class="event-thumb"><img src="./images/event/event05.png"></div>
+                                    <h3 class="event-title">추석연휴 가족 맟춤 숙소 9월 단독특가</h3>
+                                </a>
+                            </li>
+
+                            <li class="event-item">
+                                <a href="javascript:void(0)">
+                                    <div class="event-thumb"><img src="./images/event/event06.png"></div>
+                                    <h3 class="event-title">벤치테이블 제조음료 주문 시 수제식혜 1잔 무료</h3>
+                                </a>
+                            </li>
+
+                            <li class="event-item">
+                                <a href="javascript:void(0)">
+                                    <div class="event-thumb"><img src="./images/event/event07.png"></div>
+                                    <h3 class="event-title">제주고씨네고기연구소 식사메뉴 1개 무료</h3>
+                                </a>
+                            </li>
+
+                            <li class="event-item">
+                                <a href="javascript:void(0)">
+                                    <div class="event-thumb"><img src="./images/event/event08.png"></div>
+                                    <h3 class="event-title">비케이브 제조음료 20% 할인 혜택!</h3>
+                                </a>
+                            </li>
+
+                            <li class="event-item">
+                                <a href="javascript:void(0)">
+                                    <div class="event-thumb"><img src="./images/event/event09.png"></div>
+                                    <h3 class="event-title">토은 아메리카노 또는 TEA 1+1 제공혜택</h3>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- 등록된 이벤트가 없는 경우 -->
+                        <p class="event-empty" id="eventEmpty" hidden>등록된 이벤트가 없어요.</p>
                     </div>
-
-                    <nav class="pagination" id="pagination"></nav>
                 </div>
+
+                <nav class="pagination" id="pagination">
+                    <button type="button" data-page="0" disabled="" aria-label="이전 페이지">&lt;</button>
+                    <button type="button" data-page="1" class="is-active">1</button>
+                    <button type="button" data-page="2" disabled="" aria-label="다음 페이지">&gt;</button>
+                </nav>
             </div>
         </section>
     </main>
@@ -163,7 +191,6 @@
     </footer>
     <!-- // [E] footer -->
 
-    <script src="js/review-data.js"></script>
-    <script src="js/review.js"></script>
+    <script src="js/event.js"></script>
 </body>
 </html>

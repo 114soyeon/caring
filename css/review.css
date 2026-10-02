@@ -22,9 +22,9 @@
 
 /* 흰 카드: 왼쪽 조회 조건 + 오른쪽 리뷰 목록 */
 .review-card {
-    padding: 34px 34px 60px;
+    padding: 35px 35px 60px 35px;
     background: #fff;
-    border-radius: 24px;
+    border-radius: 33px;
 }
 
 .review-wrap {
@@ -49,28 +49,28 @@
 }
 
 .filter-company {
-    background: #f7faff;
+    background: #F7FBFE;
 }
 
 .filter-box h2 {
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 700;
 }
 
 .filter-box > p {
-    margin: 6px 0 20px;
+    margin: 10px 0 15px;
     font-size: 14px;
-    color: var(--text-sub);
+    color: var(--text);
 }
 
 .filter-box select {
     width: 100%;
-    height: 48px;
-    margin-bottom: 12px;
-    padding: 0 40px 0 14px;
+    height: 50px;
+    margin-bottom: 10px;
+    padding: 0 30px 0 15px;
     border: none;
-    border-radius: 10px;
-    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23222' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") right 14px center / 16px no-repeat;
+    border-radius: 15px;
+    background: #fff url("../images/common/arrow_down.png") right 14px center / 16px no-repeat;
     font: inherit;
     font-size: 16px;
     color: var(--text);
@@ -151,6 +151,8 @@
 }
 
 .photo-badge {
+    display: none;
+    
     position: absolute;
     top: 10px;
     right: 12px;
@@ -185,7 +187,7 @@
     height: 3em;
     font-size: 14px;
     line-height: 1.5;
-    color: #444;
+    color: #333;
     white-space: pre-line;
     display: -webkit-box;
     -webkit-line-clamp: 2;

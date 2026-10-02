@@ -85,14 +85,16 @@ function renderList(list) {
         .map(
             (review) => `
             <li class="review-item">
-                <div class="review-thumb">
-                    <img src="${carImages[review.carType] || carImages["중형"]}" alt="${review.carType}">
-                    ${review.hasPhoto ? '<span class="photo-badge">사진</span>' : ""}
-                </div>
-                <p class="review-stars" aria-label="별점 ${review.score}점">${stars(review.score)}</p>
-                <h3 class="review-title">${escapeHtml(review.title)}</h3>
-                <p class="review-text">${escapeHtml(review.body)}</p>
-                <p class="review-meta">${review.name} · ${review.date} · ${review.car}</p>
+                <a href="javascript:void(0)">
+                    <div class="review-thumb">
+                        <img src="${carImages[review.carType] || carImages["중형"]}" alt="${review.carType}">
+                        ${review.hasPhoto ? '<span class="photo-badge">사진</span>' : ""}
+                    </div>
+                    <p class="review-stars" aria-label="별점 ${review.score}점">${stars(review.score)}</p>
+                    <h3 class="review-title">${escapeHtml(review.title)}</h3>
+                    <p class="review-text">${escapeHtml(review.body)}</p>
+                    <p class="review-meta">${review.name} · ${review.date} · ${review.car}</p>
+                </a>
             </li>`
         )
         .join("");

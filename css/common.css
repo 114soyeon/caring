@@ -68,10 +68,19 @@ svg {
     align-items: center;
     justify-content: space-between;
 }
+.header-logo {
+    display: block;
+    width: 317px;
+    height: 50px;
+    background-image: url(../images/common/header_logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    text-indent: -9999px;
+}
 
 .header-logo img {
     display: block;
-    height: 24px;
+    height: 50px;
 }
 
 .gnb {
@@ -113,6 +122,107 @@ svg {
     background: rgba(255, 255, 255, 0.3);
      transition: all 0.3s ease;
 }
+
+/* 2depth */
+.gnb-guide {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.sub-menu {
+    position: absolute;
+    top: calc(50% + 19px);
+    left: 50%;
+    width: 180px;
+    padding: 8px;
+    background: #fff;
+    border: 1px solid #eeeeee;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transform:
+        translateX(-50%)
+        translateY(-8px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+    z-index: 1000;
+}
+
+.gnb-guide:hover .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+.gnb-guide.is-open .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+.sub-menu-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 62px;
+    padding: 10px 14px;
+    box-sizing: border-box;
+    color: #333;
+    text-decoration: none;
+    border-radius: 9px;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+/* 서브메뉴 hover */
+.sub-menu-item:hover {
+    background-color: #f7f5ff;
+    color: #6c5ce7;
+}
+
+.sub-menu-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+/* 메인 텍스트 */
+.sub-menu-text strong {
+    display: block;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+}
+
+/* hover 시 텍스트 */
+.sub-menu-item:hover .sub-menu-text strong {
+    color: #6c5ce7;
+}
+
+.gnb-guide.is-open .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+/*  */
 
 .header-user {
     display: flex;
