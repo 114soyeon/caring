@@ -1,12 +1,166 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>돌하루팡 - 최저가숙소</title>
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/stays.css" />
+  </head>
 
-<body>
-    
-</body>
+  <body>
+    <!-- [S] header -->
+    <header class="header">
+        <div class="inner header-inner">
+            <a href="index.html" class="header-logo">
+                <img src="images/common/header_logo.png" alt="돌하루팡로고">
+            </a>
+
+            <nav class="gnb">
+                <a href="cars.html" class="gnb-item"><i class="ico ico-cars"></i>렌터카</a>
+                <a href="stays.html" class="gnb-item is-active"><i class="ico ico-stays"></i>최저가 숙소</a>
+                <a href="javascript:void(0).html" class="gnb-item"><i class="ico ico-event"></i>혜택 및 이벤트</a>
+                <a href="faq.html" class="gnb-item"><i class="ico ico-guide"></i>이용가이드</a>
+            </nav>
+
+            <a href="#" class="header-user">OOO 님<i class="ico ico-user"></i></a><!-- 로그인 시 이름 노출 -->
+        </div>
+    </header>
+    <!-- // [E] header -->
+
+    <main>
+      <!-- ===== Hero ===== -->
+      <section class="hero">
+        <h1 class="hero__title">최저가 숙소</h1>
+      </section>
+
+      <!-- ===== Search ===== -->
+      <section class="search">
+        <form class="search__box" id="searchForm">
+          <label class="search__field">
+            <span class="search__icon">📍</span>
+            <input
+              type="text"
+              id="keyword"
+              placeholder="어디로 갈까요"
+              list="regionList"
+            />
+            <datalist id="regionList">
+              <option value="제주시"></option>
+              <option value="서귀포시"></option>
+              <option value="애월"></option>
+              <option value="중문"></option>
+              <option value="성산"></option>
+            </datalist>
+          </label>
+          <label class="search__field">
+            <span class="search__icon">📅</span>
+            <input
+              type="text"
+              id="checkIn"
+              placeholder="시작날짜"
+              onfocus="this.type = 'date'"
+              onblur="if (!this.value) this.type = 'text';"
+            />
+          </label>
+          <label class="search__field">
+            <span class="search__icon">📅</span>
+            <input
+              type="text"
+              id="checkOut"
+              placeholder="종료날짜"
+              onfocus="this.type = 'date'"
+              onblur="if (!this.value) this.type = 'text';"
+            />
+          </label>
+          <button type="submit" class="btn-primary">
+            최저가 가격비교 시작
+          </button>
+        </form>
+      </section>
+
+      <!-- ===== Map ===== -->
+      <section class="map-section">
+        <div id="map" class="map"></div>
+      </section>
+
+      <!-- ===== List ===== -->
+      <section class="list-section">
+        <p class="list__empty" id="emptyMsg" hidden>검색 결과가 없습니다.</p>
+        <ul class="list" id="list"></ul>
+        <nav class="pagination" id="pagination" aria-label="페이지 이동"></nav>
+      </section>
+    </main>
+
+    <!-- [S] footer -->
+    <footer class="footer">
+        <div class="inner">
+            <div class="footer-top">
+                <div>
+                    <ul class="footer-menu">
+                        <li><a href="javascript:void(0)">고객지원</a></li>
+                        <li><a href="javascript:void(0)">약관 및 정책</a></li>
+                    </ul>
+
+                    <ul class="footer-sns">
+                        <li><a href="https://www.facebook.com/dolharupang/" target="_blank" class="ico ico-facebook" aria-label="페이스북">페이스북</a></li>
+                        <li><a href="https://www.instagram.com/dolharupang/" target="_blank" class="ico ico-instagram" aria-label="인스타그램">인스타그램</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCVTTu19QIpyo58nvNyuDf8Q" target="_blank"class="ico ico-youtube" aria-label="유튜브">유튜브</a></li>
+                        <li><a href="https://blog.naver.com/khb1000je" target="_blank" class="ico ico-naver" aria-label="네이버">네이버</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-cs">
+                    <p class="cs-phone"><span>고객센터</span>064-702-1104</p>
+                    <p>09:00-18:00 (주말 17:00)</p>
+                    <p>연중무휴 (신정/명절 당일 제외)</p>
+                </div>
+            </div>
+
+            <div class="footer-company">
+                <div>
+                    <img src="images/common/logo-footer.png" alt="돌하루팡 로고" class="footer-logo">
+                    <p>제주특별자치도 연삼로 38, 연빌딩 3층 | hello@dolharupang.com | 대표이사 : 문경보 | 관광사업등록번호 : 제 2025-22호 | 여행공제보험 : 제 13-26-0395호</p>
+                </div>
+
+                <div class="footer-qr">
+                    <div>
+                        <p>iOS</p>
+                        <i class="qr ios"></i>
+                    </div>
+                    
+                    <div>
+                        <p>Android</p>
+                        <i class="qr android"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    <p>돌하루팡 [사업자등록번호 : 616-29-29782 | 통신판매업 신고번호 : 2012-제주연동-0062호]</p>
+                    <p>주식회사 제주페이 [사업자등록번호 : 739-88-00561 | 통신판매업 신고번호 : 2019-제주연동-0085호]</p>
+                    <p class="footer-safe">돌하루팡은 제주공식 우수 관광사업체로 안전거래를 보장합니다.</p>
+                </div>
+                <img src="images/common/footer-certs.png" alt="인증 마크" class="footer-certs">
+            </div>
+        </div>
+    </footer>
+    <!-- // [E] footer -->
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/stays.js"></script>
+  </body>
 </html>

@@ -10,7 +10,7 @@ const tabs = document.querySelectorAll(".faq-tab");
 let currentCategory = "전체";
 let currentPage = 1;
 
-const arrowIcon = '<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>';
+const arrowIcon = '<img src="images/faq/arrow_down.png" alt="아래화살표" class="arrow_down">';
 
 // 선택한 카테고리의 질문만
 function getFilteredFaqs() {
