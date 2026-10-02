@@ -75,6 +75,15 @@
                     </div>
 
                     <div class="filter-group">
+                        <h2>기간별 대여</h2>
+                        <div class="radio-list">
+                            <label><input type="radio" name="period" value="1일">1일</label>
+                            <label><input type="radio" name="period" value="1주">1주</label>
+                            <label><input type="radio" name="period" value="1개월">1개월</label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
                         <h2>차량 등급</h2>
                         <div class="radio-list">
                             <label><input type="radio" name="grade" value="전체" checked>전체</label>
@@ -190,6 +199,28 @@
         </div>
     </footer>
     <!-- // [E] footer -->
+
+    <script src="js/cars-data.js"></script>
+    <script src="js/cars.js"></script>
+</body>
+</html>
+
+<!-- 대여기간 변경 팝업 -->
+    <div class="dt-modal" id="dtModal" hidden>
+        <div class="dt-dialog" role="dialog" aria-modal="true" aria-label="대여기간 설정">
+            <div class="dt-head">
+                <p class="dt-summary" id="dtSummary"></p>
+                <button type="button" class="dt-close" id="dtClose" aria-label="닫기">&times;</button>
+            </div>
+            <div class="dt-times">
+                <label>대여시작시간 <select id="dtStartTime"></select></label>
+                <label>반납시간 <select id="dtEndTime"></select></label>
+            </div>
+            <div class="dt-cal" id="dtCal"></div>
+            <button type="button" class="dt-apply" id="dtApply">대여기간 적용하기</button>
+        </div>
+    </div>
+    <!-- ↑↑↑ 여기까지 ↑↑↑ -->
 
     <script src="js/cars-data.js"></script>
     <script src="js/cars.js"></script>

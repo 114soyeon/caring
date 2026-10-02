@@ -107,16 +107,12 @@
     overflow-y: auto;                  
     position: sticky;                
     top: 20px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
+
 .filter::-webkit-scrollbar {
-    width: 6px;
-}
-.filter::-webkit-scrollbar-thumb {
-    background: #cfd8e3;
-    border-radius: 3px;
-}
-.filter::-webkit-scrollbar-track {
-    background: transparent;
+    display: none;
 }
 
 .filter-group {
@@ -246,6 +242,7 @@
 }
 
 .filter-reset {
+    flex-shrink: 0;
     width: 250px;
     height: 72px;
     margin: auto auto 36px;
@@ -269,7 +266,7 @@
 .car-card {
     display: flex;
     flex-direction: column;
-    hight: 100%;
+    hight: 393px;
     position: relative;
     padding: 20px 32px 26px;
     background: #fff;
@@ -411,4 +408,248 @@
 }
 .cars-hero .hero-dots span.active {
     background: #fff;
+}
+
+.car-stock {
+    align-self: flex-start;         
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    max-width: calc(100% - 44px);   
+    margin-bottom: 12px;
+    padding: 5px 12px;
+    border-radius: 16px;
+    background: #efefef;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+}
+
+.car-stock .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 21px;
+    padding: 0 6px;
+    border-radius: 11px;
+    background: #e02a2a;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.car-detail p {
+    display: block;
+    white-space: nowrap;      
+}
+
+.car-detail p b {
+    display: inline;          
+    width: auto;
+    margin-right: 8px;      
+}
+
+.period-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;         
+    gap: 4px 8px;
+}
+
+.date-btn {
+    flex-shrink: 0;
+    height: 28px;
+    padding: 0 10px;
+    margin-left: 4px;
+    border-radius: 6px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.date-input {
+    width: 100%;
+    height: 44px;
+    margin-bottom: 8px;
+    padding: 0 12px;
+    border: none;
+    border-radius: 8px;
+    background: #f1f5fb;
+    font: inherit;
+    font-size: 15px;
+}
+
+.date-input[hidden] {
+    display: none;
+}
+
+.dt-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.dt-modal[hidden] {
+    display: none;
+}
+
+.dt-dialog {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    max-width: 100%;
+    max-height: calc(100vh - 40px);
+    padding: 20px 16px 16px;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.dt-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4px 14px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.dt-summary {
+    font-size: 15px;
+    color: #444;
+}
+
+.dt-total {
+    margin-left: 4px;
+    color: #2e8cff;
+    font-weight: 600;
+}
+
+.dt-close {
+    font-size: 30px;
+    line-height: 1;
+    color: #555;
+    background: none;
+    cursor: pointer;
+}
+
+.dt-times {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 14px 4px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.dt-times label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    color: #444;
+}
+
+.dt-times select {
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid #d5d9e0;
+    border-radius: 6px;
+    background: #fff;
+    font: inherit;
+    font-size: 15px;
+}
+
+.dt-cal {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 6px 4px;
+}
+
+.dt-month h4 {
+    margin: 16px 0 8px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.dt-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    row-gap: 4px;
+}
+
+.dt-wd {
+    padding: 8px 0;
+    text-align: center;
+    font-size: 13px;
+    color: #555;
+}
+
+.dt-wd.sun { color: #e02a2a; }
+.dt-wd.sat { color: #2e6bff; }
+
+.dt-day {
+    height: 36px;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 15px;
+    color: #222;
+    cursor: pointer;
+}
+
+.dt-day.off {
+    color: #c7cacf;
+    cursor: default;
+}
+
+.dt-day.mid {
+    background: #dbe9fd;
+}
+
+.dt-day.sel {
+    background: #2563eb;
+    color: #fff;
+    border-radius: 18px;
+}
+
+.dt-apply {
+    flex-shrink: 0;
+    height: 52px;
+    margin-top: 12px;
+    border-radius: 10px;
+    background: var(--blue);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.car-card img {
+  height: 185px; 
+  object-fit: contain;
+}
+
+.car-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.car-card {
+  align-self: start;
+}
+
+.car-card h3 {
+  height: 48px;
+  line-height: 24px;
 }
