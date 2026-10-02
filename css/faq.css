@@ -23,11 +23,17 @@
 /* 흰 카드: 왼쪽 카테고리 + 오른쪽 질문 목록 */
 .faq-card {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 36px;
-    align-items: flex-start;
     padding: 36px;
     background: #fff;
     border-radius: 24px;
+}
+.faq-wrap {
+    display: flex;
+    gap: 36px;
+    width: 100%;
 }
 
 /* 카테고리 */
@@ -54,15 +60,24 @@
     color: var(--text);
 }
 
-.faq-tab:hover {
-    background: #f5f8fb;
-}
-
+.faq-tab:hover,
 .faq-tab.is-active {
-    background: var(--blue-light);
     color: var(--blue);
     font-weight: 700;
+    background: #f5f8fb;
+    transition: all 0.2s ease;
 }
+
+.ico_all { background-image: url(../images/faq/ico_all.png);}
+.ico_car { background-image: url(../images/faq/ico_car.png);}
+.ico_home { background-image: url(../images/faq/ico_home.png);}
+.ico_dot { background-image: url(../images/faq/ico_dot.png);}
+
+.faq-tab.is-active .ico_all, .faq-tab:hover .ico_all { background-image: url(../images/faq/ico_all_on.png);}
+.faq-tab.is-active .ico_car, .faq-tab:hover .ico_car { background-image: url(../images/faq/ico_car_on.png);}
+.faq-tab.is-active .ico_home, .faq-tab:hover .ico_home { background-image: url(../images/faq/ico_home_on.png);}
+.faq-tab.is-active .ico_dot, .faq-tab:hover .ico_dot { background-image: url(../images/faq/ico_dot_on.png);}
+
 
 /* 질문 목록 */
 .faq-content {
@@ -102,14 +117,11 @@
     flex: 1;
 }
 
-.faq-question svg {
-    flex-shrink: 0;
-    width: 22px;
-    height: 22px;
-    transition: transform 0.2s;
+.faq-question .arrow_down {
+    transition: transform 0.3s ease; 
 }
 
-.faq-item.is-open .faq-question svg {
+.faq-item.is-open .faq-question .arrow_down {
     transform: rotate(180deg);
 }
 
@@ -118,9 +130,7 @@
     gap: 14px;
     padding: 22px 60px 22px 60px;
     border-top: 1px solid var(--line-light);
-    font-size: 17px;
     line-height: 1.5;
-    color: #444;
 }
 
 .faq-item.is-open .faq-answer {
