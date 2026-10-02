@@ -21,62 +21,79 @@
   </head>
 
   <body>
-    <!-- 공통 헤더 -->
+    <!-- [S] header -->
     <header class="header">
       <div class="inner header-inner">
         <a href="index.html" class="header-logo">
-          <img src="images/common/logo-white.png" alt="돌하루팡" />
+          <img src="images/common/header_logo.png" alt="돌하루팡로고" />
         </a>
 
         <nav class="gnb">
-          <a href="cars.html" class="gnb-item">
-            <svg viewBox="0 0 24 24">
-              <path d="M5 17h14v-5l-2-5H7l-2 5v5z" />
-              <circle cx="7.5" cy="17" r="1.5" />
-              <circle cx="16.5" cy="17" r="1.5" />
-              <path d="M5 12h14" />
-            </svg>
-            렌터카
-          </a>
-          <a href="stays.html" class="gnb-item is-active">
-            <svg viewBox="0 0 24 24">
-              <path d="M3 11l9-7 9 7" />
-              <path d="M5 10v10h14V10" />
-              <path d="M10 20v-5h4v5" />
-            </svg>
-            최저가 숙소
-          </a>
-          <a href="review.html" class="gnb-item">
-            <svg viewBox="0 0 24 24">
-              <rect x="3" y="6" width="18" height="12" rx="2" />
-              <path d="M9 6v12" stroke-dasharray="2 2" />
-              <path d="M13 10l4 4M17 10l-4 4" />
-            </svg>
-            혜택 및 이벤트
-          </a>
-          <a href="faq.html" class="gnb-item">
-            <svg viewBox="0 0 24 24">
-              <path d="M6 3h12v18l-6-4-6 4z" />
-              <path d="M9 8h6" />
-            </svg>
-            이용가이드
-          </a>
+          <a href="cars.html" class="gnb-item"
+            ><i class="ico ico-cars"></i>렌터카</a
+          >
+          <a href="stays.html" class="gnb-item"
+            ><i class="ico ico-stays"></i>최저가 숙소</a
+          >
+          <a href="stays.html" class="gnb-item"
+            ><i class="ico ico-event"></i>혜택 및 이벤트</a
+          >
+          <a href="stays.html" class="gnb-item is-active"
+            ><i class="ico ico-guide"></i>이용가이드</a
+          >
         </nav>
 
-        <a href="#" class="header-user">
-          OOO 님
-          <svg viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10" />
-            <circle cx="12" cy="10" r="3" />
-            <path d="M6.5 18.5c1.5-2 3.4-3 5.5-3s4 1 5.5 3" />
-          </svg>
-        </a>
+        <a href="#" class="header-user">OOO 님<i class="ico ico-user"></i></a
+        ><!-- 로그인 시 이름 노출 -->
       </div>
     </header>
+    <!-- // [E] header -->
 
     <main>
       <!-- ===== Hero ===== -->
+      <!-- 지원님 코드를 일단 여기에 가져다 붙여요 -> 화면에서 어떻게 나오는지를 확인
+        내가 변경하고자하는 부분들을 찾아요 UI 적으로 깨지는 부분이 있다면 CSS 수정
+        기능적으로 오류가 있다면 JS 수정,  
+      -->
       <section class="hero">
+        <div class="hero-slids">
+                           
+          <div
+            class="hero-slide active"
+            style="
+              background-image: url(&quot;images/stays/슬라이드0.jpg&quot;);
+            "
+          ></div>
+                           
+          <div
+            class="hero-slide"
+            style="
+              background-image: url(&quot;images/stays/슬라이드1.jpg&quot;);
+            "
+          ></div>
+                           
+          <div
+            class="hero-slide"
+            style="
+              background-image: url(&quot;images/stays/슬라이드2.jpg&quot;);
+            "
+          ></div>
+                           
+          <div
+            class="hero-slide"
+            style="
+              background-image: url(&quot;images/stays/슬라이드3.jpg&quot;);
+            "
+          ></div>
+                           
+          <div
+            class="hero-slide"
+            style="
+              background-image: url(&quot;images/stays/슬라이드4.jpg&quot;);
+            "
+          ></div>
+        </div>
+        <div class="hero__bg"></div>
         <h1 class="hero__title">최저가 숙소</h1>
       </section>
 
@@ -119,8 +136,8 @@
               onblur="if (!this.value) this.type = 'text';"
             />
           </label>
-          <button type="submit" class="btn-primary">
-            최저가 가격비교 시작
+          <button type="submit" class="btn-search">
+            <img src="images/stays/검색.png" alt="최저가 가격비교 시작" />
           </button>
         </form>
       </section>
@@ -138,53 +155,113 @@
       </section>
     </main>
 
-    <!-- ===== Footer ===== -->
+    <!-- [S] footer -->
     <footer class="footer">
-      <div class="footer__inner">
-        <div class="footer__top">
+      <div class="inner">
+        <div class="footer-top">
           <div>
-            <ul class="footer__links">
-              <li><a href="#">고객지원</a></li>
-              <li><a href="#">약관 및 정책</a></li>
+            <ul class="footer-menu">
+              <li><a href="javascript:void(0)">고객지원</a></li>
+              <li><a href="javascript:void(0)">약관 및 정책</a></li>
             </ul>
-            <ul class="sns">
-              <li><a href="#" class="sns__fb" aria-label="facebook">f</a></li>
-              <li><a href="#" class="sns__ig" aria-label="instagram">◎</a></li>
-              <li><a href="#" class="sns__yt" aria-label="youtube">▶</a></li>
-              <li><a href="#" class="sns__nv" aria-label="naver">N</a></li>
+
+            <ul class="footer-sns">
+              <li>
+                <a
+                  href="https://www.facebook.com/dolharupang/"
+                  target="_blank"
+                  class="ico ico-facebook"
+                  aria-label="페이스북"
+                  >페이스북</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/dolharupang/"
+                  target="_blank"
+                  class="ico ico-instagram"
+                  aria-label="인스타그램"
+                  >인스타그램</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/channel/UCVTTu19QIpyo58nvNyuDf8Q"
+                  target="_blank"
+                  class="ico ico-youtube"
+                  aria-label="유튜브"
+                  >유튜브</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://blog.naver.com/khb1000je"
+                  target="_blank"
+                  class="ico ico-naver"
+                  aria-label="네이버"
+                  >네이버</a
+                >
+              </li>
             </ul>
           </div>
-          <div class="cs">
-            <p class="cs__tel">
-              <span>고객센터</span> <strong>064-702-1104</strong>
-            </p>
-            <p>09:00~18:00 (주말, 공휴일 휴무)</p>
-            <p>점심시간 12:00~13:00</p>
+
+          <div class="footer-cs">
+            <p class="cs-phone"><span>고객센터</span>064-702-1104</p>
+            <p>09:00-18:00 (주말 17:00)</p>
+            <p>연중무휴 (신정/명절 당일 제외)</p>
           </div>
         </div>
 
-        <div class="footer__logo">🗿 <span>돌하루팡</span></div>
+        <div class="footer-company">
+          <div>
+            <img
+              src="images/common/logo-footer.png"
+              alt="돌하루팡 로고"
+              class="footer-logo"
+            />
+            <p>
+              제주특별자치도 연삼로 38, 연빌딩 3층 | hello@dolharupang.com |
+              대표이사 : 문경보 | 관광사업등록번호 : 제 2025-22호 | 여행공제보험
+              : 제 13-26-0395호
+            </p>
+          </div>
 
-        <p class="footer__info">
-          제주특별자치도 제주시 연삼로 38, 한일빌딩 3층 | hello@dolharupang.com
-          | 대표자 : 홍길동 | 사업자등록번호 : 000-00-00000<br />
-          통신판매업 신고번호 : 제2026-제주-0000호 | 관광사업등록번호 :
-          제2026-000000호
-        </p>
-        <p class="footer__notice">
-          돌하루팡은 통신판매중개자로서 상품정보 및 거래에 대한 책임은 각
-          판매자에게 있습니다.
-        </p>
-        <p class="footer__copy">© 2026 DOLHARUPANG. All rights reserved.</p>
+          <div class="footer-qr">
+            <div>
+              <p>iOS</p>
+              <i class="qr ios"></i>
+            </div>
 
-        <div class="certs">
-          <span class="cert">KSA</span>
-          <span class="cert">♣</span>
-          <span class="cert">◉</span>
-          <span class="cert">◎</span>
+            <div>
+              <p>Android</p>
+              <i class="qr android"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>
+            <p>
+              돌하루팡 [사업자등록번호 : 616-29-29782 | 통신판매업 신고번호 :
+              2012-제주연동-0062호]
+            </p>
+            <p>
+              주식회사 제주페이 [사업자등록번호 : 739-88-00561 | 통신판매업
+              신고번호 : 2019-제주연동-0085호]
+            </p>
+            <p class="footer-safe">
+              돌하루팡은 제주공식 우수 관광사업체로 안전거래를 보장합니다.
+            </p>
+          </div>
+          <img
+            src="images/common/footer-certs.png"
+            alt="인증 마크"
+            class="footer-certs"
+          />
         </div>
       </div>
     </footer>
+    <!-- // [E] footer -->
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="js/stays.js"></script>
