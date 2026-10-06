@@ -62,6 +62,16 @@
     border-radius: 33px 33px 0 0;
     overflow: hidden;
 }
+@media (max-width: 1052px) {
+    .event-item {
+        width: calc(50% - 10px);
+    }
+}
+@media (max-width: 600px) {
+    .event-item {
+        width: 100%;
+    }
+}
 
 .event-title {
     margin: 4px 0 6px;
