@@ -37,7 +37,7 @@
 
 ## 2. 배포 링크와 대표 화면
 
-- **배포 링크**: <!-- TODO: https://(github-id).github.io/(repo-name)/ -->
+- **배포 링크**: https://github.com/114soyeon/caring
 - **원본 사이트**: https://www.dolharupang.com/cars
 
 **메인 페이지**
