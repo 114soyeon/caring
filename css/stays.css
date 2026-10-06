@@ -63,7 +63,7 @@ input {
   font-size: 56px;
   font-weight: 700;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  margin-top: -60px;
+  margin-top: -6px;
 }
 
 /* ===== Search ===== */
@@ -112,6 +112,10 @@ input {
   font-size: 16px;
   color: var(--text);
 }
+.search__field input::placeholder {
+  color: #c7cacf;
+}
+
 .btn-primary {
   background: var(--primary);
   color: #fff;
