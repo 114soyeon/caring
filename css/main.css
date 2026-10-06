@@ -444,68 +444,7 @@
 .b-visit:hover {
     background: var(--blue);
     color: #fff;
-}
-
-/* ---------- 플로팅 버튼 ---------- */
-.floating {
-    position: fixed;
-    /* 1440px 영역 오른쪽 끝에 맞춤 (화면이 더 좁으면 20px 띄움) */
-    right: calc((100% - 1585px) / 2);
-    bottom: 120px;
-    z-index: 50;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-}
-
-.btn-top {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid #d5dbe2;
-    color: #b4bcc6;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
-}
-
-.btn-top.is-show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.btn-top:hover {
-    color: var(--blue);
-    border-color: var(--blue);
-}
-
-.btn-talk {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* footer_logo.png */
-.talk{
-    width: 71px; height: 50px;
-}
-
-.btn-talk:hover .talk-label {
-    background: #0062d9;
-}
-
-/* footer QR 글씨 가운데 정렬 */
-.footer-qr > div {
-    text-align: center;
-}
-
-.footer-qr p {
-    margin-bottom: 4px;
+    transition: all 0.2s ease;
 }
 
 /* ---------- 반응형 ---------- */

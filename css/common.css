@@ -320,6 +320,7 @@ svg {
   gap: 20px;
 }
 .footer-qr p {
+  margin-bottom: 4px;
   color: #333;
 }
 .footer-qr .qr {
@@ -358,4 +359,56 @@ svg {
 
 .footer-certs {
   height: 50px;
+}
+
+/* floating */
+.floating {
+  position: fixed;
+  right: 5%;
+  bottom: 120px;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.btn-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #d5dbe2;
+  color: #b4bcc6;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.btn-top.is-show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn-top:hover {
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+.btn-talk {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.talk{
+  width: 100px;
+  height: 70px;
+}
+
+.btn-talk:hover .talk-label {
+  background: var(--blue);
 }
