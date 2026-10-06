@@ -160,17 +160,33 @@ mainSearch.addEventListener("input", (e) => {
 });
 
 /* ---------- 3. 제주 날씨 ---------- */
-// 지금은 고정 데이터. 나중에 날씨 API 붙이면 이 배열만 바꾸면 됨
-const weatherToday = { type: "sunny", temp: 22, text: "맑음" };
-const weatherWeek = [
-  { day: "금", type: "partly", high: 23, low: 18 },
-  { day: "토", type: "cloudy", high: 21, low: 17 },
-  { day: "일", type: "rainy", high: 19, low: 15 },
-  { day: "월", type: "partly", high: 23, low: 18 },
-  { day: "화", type: "cloudy", high: 21, low: 17 },
-  { day: "수", type: "rainy", high: 19, low: 15 },
-  { day: "목", type: "rainy", high: 19, low: 15 },
+// 요일은 오늘부터 하루씩 자동 계산됩니다. 기온은 Open-Meteo(무료, 키 없음)에서 받아오고,
+// 받아오지 못하면 아래 기본 데이터(오늘부터 순서대로)를 보여줍니다.
+const WEEK_DAYS = 7;
+const DOW = "일월화수목금토";
+
+let weatherToday = { type: "sunny", temp: 22, text: "맑음" };
+let weatherWeek = [
+  { type: "sunny", high: 22, low: 18 },
+  { type: "sunny", high: 23, low: 18 },
+  { type: "partly", high: 24, low: 18 },
+  { type: "cloudy", high: 21, low: 17 },
+  { type: "rainy", high: 19, low: 15 },
+  { type: "partly", high: 23, low: 18 },
+  { type: "cloudy", high: 21, low: 17 },
 ];
+
+// 날씨 코드(WMO) → 아이콘 종류 / 문구
+const codeToType = (c) =>
+  c <= 1 ? "sunny" : c === 2 ? "partly" : c <= 48 ? "cloudy" : "rainy";
+const codeToText = (c) =>
+  c <= 1 ? "맑음" : c === 2 ? "구름 조금" : c <= 48 ? "흐림" : "비";
+
+const WEATHER_URL =
+  "https://api.open-meteo.com/v1/forecast?latitude=33.4996&longitude=126.5312" +
+  "&daily=weathercode,temperature_2m_max,temperature_2m_min" +
+  "&current=temperature_2m,weathercode&timezone=Asia%2FSeoul&forecast_days=" +
+  WEEK_DAYS;
 
 const sun = `
     <circle cx="16" cy="16" r="6" fill="#ffb52b"/>
@@ -194,22 +210,60 @@ function weatherSvg(type) {
   return `<svg class="w-icon" viewBox="0 0 32 32" aria-hidden="true">${weatherIcons[type]}</svg>`;
 }
 
-document.querySelector("#weatherToday").innerHTML = `
+// 화면 그리기: i번째 칸 = 오늘 + i일 (월말/연말도 자동으로 넘어감)
+function renderWeather() {
+  const now = new Date();
+
+  document.querySelector("#weatherToday").innerHTML = `
     ${weatherSvg(weatherToday.type)}
     <strong class="today-temp">${weatherToday.temp}°</strong>
     <p class="today-text"><span>제주 날씨</span>${weatherToday.text}</p>
 `;
 
-document.querySelector("#weatherWeek").innerHTML = weatherWeek
-  .map(
-    (w) => `
+  document.querySelector("#weatherWeek").innerHTML = weatherWeek
+    .slice(0, WEEK_DAYS)
+    .map((w, i) => {
+      const date = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i);
+      return `
         <li class="weather-day">
-            <span class="w-name">${w.day}</span>
+            <span class="w-name">${DOW[date.getDay()]}</span>
             ${weatherSvg(w.type)}
             <p class="w-temp"><b>${w.high}°</b><small>${w.low}°</small></p>
-        </li>`,
-  )
-  .join("");
+        </li>`;
+    })
+    .join("");
+}
+
+renderWeather(); // 먼저 기본 데이터로 바로 표시
+
+// 실제 예보를 받으면 오늘부터의 요일에 맞춰 최고/최저 기온을 교체
+fetch(WEATHER_URL)
+  .then((res) => res.json())
+  .then((data) => {
+    const d = data.daily;
+    weatherWeek = d.time.map((_, i) => ({
+      type: codeToType(d.weathercode[i]),
+      high: Math.round(d.temperature_2m_max[i]),
+      low: Math.round(d.temperature_2m_min[i]),
+    }));
+    weatherToday = {
+      type: codeToType(data.current.weathercode),
+      temp: Math.round(data.current.temperature_2m),
+      text: codeToText(data.current.weathercode),
+    };
+    renderWeather();
+  })
+  .catch(() => {}); // 실패하면 기본 데이터 유지
+
+// 페이지를 켜둔 채 자정이 지나면 요일을 다시 계산
+(function scheduleMidnight() {
+  const n = new Date();
+  const next = new Date(n.getFullYear(), n.getMonth(), n.getDate() + 1, 0, 0, 5);
+  setTimeout(() => {
+    renderWeather();
+    scheduleMidnight();
+  }, next - n);
+})();
 
 /* ---------- 4. 이용 고객 숫자 올라가기 ---------- */
 const userCount = document.querySelector("#userCount");
