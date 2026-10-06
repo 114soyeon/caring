@@ -653,3 +653,12 @@
   height: 48px;
   line-height: 24px;
 }
+
+.car-detail label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.car-detail label input[type="datetime-local"] {
+    margin-left: 6px;
+}
